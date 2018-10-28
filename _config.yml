@@ -1,0 +1,24 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            'یک سعید صالحی'
+tagline:          'A Jekyll theme'
+description:      'وبگاه شخصی سعید صالحی'
+url:              http://1saeedsalehi.ir
+
+author:
+  name:           'سعید صالحی'
+  url:            https://twitter.com/1saeedsalehi
+
+paginate:         5
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/1saeedsalehi/1saeedsalehi.github.io
