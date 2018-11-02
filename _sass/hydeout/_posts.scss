@@ -42,6 +42,8 @@ h2.post-title, h2.page-title {
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: $body-muted;
+  direction: ltr;
+  text-align: left;
 }
 
 .post-tags a {
