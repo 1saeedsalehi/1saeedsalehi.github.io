@@ -59,7 +59,7 @@ public class User
 
 هر عمل mutable معادل کد غیر شفاف است. در واقع وابستگی هر عملی که انجام می دهیم به state باعث میشود که شرایط ناپایدار در کد داشته باشیم. به طور مثال در یک عملیات  چند نخی تصور کنید که چندین نخ به طور همزمان می توانند state رو تغییر دهند و مدیریت این قضیه باعث به وجود آمدن کد های ناخوانا و تحمیل پیچیدگی بیشتر به کد خواهد شد.
 
-![method honesty](/assets/images/method-honesty.png "method-honesty")
+![method honesty](/assets/images/method-honesty.png)
 
 در واقع انتظار داریم که به ازای یک ورودی بر اساس بدنه متد یک خروجی داشته باشیم ، ولی در واقعیت تاثیری که اجرای متد بر روی state کل کلاس خواهد گذاشت از دید ما پنهان است و باعث به وجود آمدن مشکلات بعدی خواهد شد.
 برای مثال قطعه کد بالا را به صورت Honest بازنویسی میکنیم
@@ -135,23 +135,23 @@ ImmutableList<string> immutableList = builder.ToImmutable();
 اشتباه رایج درباره این الگو ، محدود کردن این الگو به معماری های خاص مانند Domain Driven می باشد در صورتی که الزامی برای رعایت این الگو در سایر معماری ها وجود ندارد.
 
 
-![command query separation](/assets/images/command-query-separation.png "command query separation")
+![command query separation](/assets/images/command-query-separation.png)
 
 به مثال زیر دقت کنید. سعی کردم قسمت های Command و Query را از هم جدا کنم
 
 
-![command query code sample](/assets/images/command-query-code.png "command query code sample")
+![command query code sample](/assets/images/command-query-code.png)
 
 در واقع هر اپلیکیشن شامل دو قسمت می تواند باشد 
 
 
 قسمتی که منطق بیزینسی برنامه پیاده سازی می شود که باید به صورت Immutable باشد و خروجی را تولید میکند و قسمت دیگر برنامه که خروجی تولید شده برای ذخیره سازی وضعیت سیستم استفاده می کند.
 
-![application architecutre](/assets/images/application.png "architecture")
+![application architecutre](/assets/images/application.png)
 
 در واقع یک هسته Immutable ورودی را دریافت میکند و خروجی های مورد نیاز را تولید میکند و همه این ها در دل یک پوسته Mutable پیاده سازی می شوند که ما در اینجا به آن اصطلاحا Mutable Shell میگوییم.
 
-![mutable-shell-immutable-core](/assets/images/mutable-shell-immutable-core.png "mutable-shell-immutable-core")
+![mutable-shell-immutable-core](/assets/images/application.png)
 
 برای مسائلی که در بالا صحبت شد نمونه آماده کردم. این نمونه  به طور ساده یک سیستم مدیریت نوبت است که نوبت ها را در فایل ذخیره / بازیابی میکند (mutate) و منطق مربوط به نوبت ها و زمان ویزیت آن میتواند به صورت immutable پیاده شود.
 این کد در دو حالت functional و غیر functional پیاده سازی شده تا به خوبی تفاوت آن در حالت قبل و بعد از برنامه نویسی تابعی بتوانیم درک کنیم.
