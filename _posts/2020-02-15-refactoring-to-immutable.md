@@ -155,5 +155,3 @@ ImmutableList<string> immutableList = builder.ToImmutable();
 
 امیدوارم که مطالب مربوط به برنامه نویسی تابعی یا functional programming توانسته باشد دیدگاه جدیدی به کد هایی که مینویسیم بدهد.
 در  قسمت های بعدی به مواردی مانند مدیریت exception ها و کار با null ها و ... خواهیم پرداخت. 
-
-
