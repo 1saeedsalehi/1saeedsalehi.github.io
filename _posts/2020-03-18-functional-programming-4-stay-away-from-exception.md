@@ -277,7 +277,9 @@ private Result SaveCustomer(Customer customer) {
 
 ![mathematical function](/assets/images/functional-programming/exception/cqs.png)
 
-به عنوان نمونه یک پیاده سازی از این کلاس را در [اینجا](https://gist.github.com/1saeedsalehi/af1d65e9668220f44e80c6c28b9e3019) قرار داده ام.
+به عنوان نمونه یک پیاده سازی از این کلاس را در اینجا قرار داده ام.
+
+<script src="https://gist.github.com/1saeedsalehi/af1d65e9668220f44e80c6c28b9e3019.js"></script>
 
 قطعا میتوانیم پیاده سازی های بهتری از این کلاس داشته باشیم ، خوشحال میشم که نظراتتون رو باهام به اشتراک بذارین.
 
