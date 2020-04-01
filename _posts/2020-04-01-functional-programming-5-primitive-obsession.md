@@ -49,7 +49,7 @@ public class UserFactory
 در مثال بالا تصور کنید ، که به جای یک ایمیل از چند ایمیل به عنوان ورودی میخاهید استفاده کنید ، آیا منطق Validation را به ازای هر پارامتر ورودی باید تکرار کنید؟ 
 
 
-![dishonest method signature](/assets/images/functional-programming/primitive-obsession/dishonest-method-signature.png)
+![dishonest method signature](/assets/images/functional-programming/primitive-obsession/dry.png)
 به طور کلی استفاده نا به جا و بیش از جد از نوع های داده اولیه باعث میشود Honesty متد ها را از دست بدهیم و قاعده DRY را نقض کنیم.
 
 
