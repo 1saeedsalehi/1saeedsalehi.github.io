@@ -1,6 +1,6 @@
 ---
 layout: post
-title:   Functional Programming - Primitive Obsession
+title:   Functional Programming - قسمت پنجم
 categories:
   - Programming
 tags:
