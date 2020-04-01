@@ -7,9 +7,8 @@ tags:
   - functional-programming 
   - برنامه نویسی تابعی
   - تابع
-  - exception
-  - استثنا
-  - خطا
+  - valueobject
+  - primitive-obsession
 
 last_modified_at: 2020-04-01T18:00:00-05:00
 ---
