@@ -70,15 +70,21 @@ public class UserFactory
 
 برای طور مثال برای کلاس ایمیل می توانیم به صورت زیر عمل کنیم: 
 
-`public class EmailAddress : ValueOf<string, EmailAddress> { }`
+```
+public class EmailAddress : ValueOf<string, EmailAddress> { }
+```
 
 همچنین برای مقدار دهی این کلاس میتوانید به صورت زیر عمل کنید
 
-`EmailAddress emailAddress = EmailAddress.From("foo@bar.com");`
+```
+EmailAddress emailAddress = EmailAddress.From("foo@bar.com");
+```
 
 برای مثال های پیچیده تر ، مانند آدرس که شامل ادرس و کد پستی و ... می باشد میتوانید با استفاده از امکان Tuple ها که از سی شارپ 7 به بعد معرفی شده مانند مثال زیر عمل کنید
 
-`public class Address : ValueOf<(string firstLine, string secondLine, Postcode postcode), Address> { }`
+```
+public class Address : ValueOf<(string firstLine, string secondLine, Postcode postcode), Address> { }
+```
 
 و در نهایت برای نوشتن منطق مربوط به validation می توانید متد Validate را Override کنید
 و قاعده DRY را هم نقض نکنید.
