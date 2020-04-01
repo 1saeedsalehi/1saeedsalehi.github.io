@@ -17,10 +17,10 @@ last_modified_at: 2020-04-01T18:00:00-05:00
 در ادامه سری مقالات مرتبط با برنامه نویسی تابعی ، قصد دارم به استفاده کردن یا نکردن از نوع های داده اولیه (Primitive Types) را بررسی کنیم.
 پیشنهاد میکنم در صورتی که قسمت های قبلی را مطالعه نکرده اید ابتدا قسمت های قبل را بخوانید:
 
-[قسمت اول : آشنایی با مفاهیم](http://1saeedsalehi.ir/programming/2019/11/25/functional-programming.html)
-[قسمت دوم : مثال های عملی](http://1saeedsalehi.ir/programming/2019/11/30/functional-programming-2-examples.html)
-[قسمت سوم: Immutability عدم توانایی تغییر](http://1saeedsalehi.ir/programming/2020/02/15/functional-programming-3-refactoring-to-immutable.html)
-[قسمت چهارم :  برخورد با Exception ها](http://1saeedsalehi.ir/programming/2020/03/18/functional-programming-4-stay-away-from-exception.html)
+- [قسمت اول : آشنایی با مفاهیم](http://1saeedsalehi.ir/programming/2019/11/25/functional-programming.html)
+- [قسمت دوم : مثال های عملی](http://1saeedsalehi.ir/programming/2019/11/30/functional-programming-2-examples.html)
+- [قسمت سوم: Immutability عدم توانایی تغییر](http://1saeedsalehi.ir/programming/2020/02/15/functional-programming-3-refactoring-to-immutable.html)
+- [قسمت چهارم :  برخورد با Exception ها](http://1saeedsalehi.ir/programming/2020/03/18/functional-programming-4-stay-away-from-exception.html)
 
 
 
@@ -36,7 +36,6 @@ public class UserFactory
         return new User(email);
     }
 }
-
 ```
 
 کلاس UserFactory یک متد به نام CreateUser دارد که یک رشته را به عنوان ورودی میگیرد و یک شی از کلاس User را بر میگرداند. خوب مشکل این متد کجاست؟
@@ -67,7 +66,7 @@ public class UserFactory
 
 <script src="https://gist.github.com/1saeedsalehi/e2b454a3be06fb81a5e9f2782f316991.js"></script>
 
-در این روش ، یک کلاس به عنوان Value Object  ایجاد کرده ایم ، این کلاس نوع اولیه ای که با آن سر و کار داریم را در بر خواهد گرفت. و منطق مربوط به مقایسه ، همچنین عملگر های == و != را هم از طریق .Equals  و .GetHashCode() پیاده سازی کرده .
+در این روش ، یک کلاس به عنوان Value Object  ایجاد کرده ایم ، این کلاس نوع اولیه ای که با آن سر و کار داریم را در بر خواهد گرفت. و منطق مربوط به مقایسه ، همچنین عملگر های `==` و `!=` را هم از طریق `.Equals`  و `.GetHashCode()` پیاده سازی کرده .
 
 
 
