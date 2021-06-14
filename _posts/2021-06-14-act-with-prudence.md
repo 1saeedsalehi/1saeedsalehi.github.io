@@ -5,7 +5,7 @@ categories:
   - Programming
   - lifestyle
 tags:
-  - 97-چیچز
+  - 97-چیز
   - software-architecture
   - software
   - developer
