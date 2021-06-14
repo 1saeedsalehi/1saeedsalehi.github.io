@@ -1,6 +1,6 @@
 ---
 layout: post
-title:   با تدبیر رفتار کنید
+title:   چیزهایی که هر برنامه نویسی باید بداند - چیز اول
 categories:
   - Programming
   - lifestyle
@@ -27,7 +27,6 @@ last_modified_at: 2021-06-14T12:00:00-05:00
  این مدل کار های عقب افتاده با عنوان بدهی فنی شناخته میشن و اون ها اصلا دوست داشتنی نیستن
 
  به طور مشخصی مارتین فاولر این را در دسته بندی بدهی فنی عمدی جا داده 
- [taxonomy of technical debt](http://martinfowler.com/bliki/TechnicalDebtQuadrant.html),
+ [انواع بدهی فنی](http://martinfowler.com/bliki/TechnicalDebtQuadrant.html),
  که نباید با بدهی فنی غیر عمدی اشتباه گرفته بشه
 
- 
