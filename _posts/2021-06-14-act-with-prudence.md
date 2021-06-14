@@ -2,7 +2,6 @@
 layout: post
 title:   چیزهایی که هر برنامه نویسی باید بداند - چیز اول
 categories:
-  - Programming
   - lifestyle
 tags:
   - 97-چیز
