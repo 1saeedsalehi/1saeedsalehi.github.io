@@ -2,18 +2,19 @@
 layout: post
 title:  مساله null reference exception و راه حل فانکشنال طور!
 categories:
-  - lifestyle
+  - programming
 tags:
   - functional-programming 
   - برنامه نویسی تابعی
   - تابع
   - exception
   - c#
-  - validation
+  - null reference
+  - exception
 
 last_modified_at: 2021-11-08T12:00:00-05:00
 ---
-### مساله null reference exception و راه حل فانکشنال طور!
+### چه جوری با نال کنار بیایم
 
 تکه کد زیر را ببینید
 
