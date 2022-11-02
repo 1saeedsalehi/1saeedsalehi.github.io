@@ -3,8 +3,6 @@ layout: category
 title: Programming
 ---
 
-مطالبی که تو زمینه برنامه نویسی و همه چیز هایی که بهش ربط دارن رو اینجا مینویسم
+I write here all kinds of stuffs related to  programming and software engineering
 
-
-
-پست هایی که تو این زمینه نوشتم:
+The posts I wrote in this category:

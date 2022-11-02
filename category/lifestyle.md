@@ -3,10 +3,9 @@ layout: category
 title: LifeStyle 
 ---
 
-مطالبی که تو این دسته مینویسم بیشتر نظرات شخصی من هستن  
-طبیعیه که مثل هر ادم زنده ای درباره خیلی چیز ها نظر هایی داشته باشم
+Most of the things I write in this category are my personal opinions
+Naturally, I can have my opinion on many things just like any living person
 
-ممکن هست که باهاشون موافق باشین یا نباشین
- :)
+You may or may not agree with them :)
 
- پست هایی که تو این زمینه نوشتم:
+The posts I wrote in this category:
