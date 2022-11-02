@@ -1,12 +1,23 @@
 ---
 layout: page
-title: درباره
+title: About me!
 sidebar_link: true
 ---
+## Hi there, I'm Saeed Salehi 👋
 
-<h1 align="center">Hi there, I'm Saeed Salehi 👋</h1>
 
-<p align="center">
+### What I do
+I Build software at [iO Digital](https://iodigital.com)
+
+Ever since I first laid my hands on my first computer (since Y2K 🪲)
+
+🧑‍💻 I've loved computers and all the wonderful things you can make them.
+
+💬 you can talk with me about .Net Core, C#, Microsoft Azure,Micro Services, CQRS, DDD, Functional Programming and everything else!
+
+👯 you can find me in:
+
+<p class="inline-images">
  <a href="https://linkedin.com/in/1saeedsalehi" target="_blank">
   <img src="https://img.icons8.com/fluent/48/000000/linkedin.png" />
  </a>
@@ -14,15 +25,15 @@ sidebar_link: true
  <a href="https://twitter.com/1saeedsalehi" target="_blank">
   <img src="https://img.icons8.com/fluent/48/000000/twitter.png" />
  </a>
+
+ <a href="mailto:hi@1saeed.dev" target="_blank">
+  <img src="https://img.icons8.com/fluency/48/000000/email.png"/>
+ </a>
 </p>
 
-<p align="center"> 
- <strong>
-  Professional skills
-  </strong>
-</p>
+### Experiences
 
-<p align="center"> 
+<p class="inline-images"> 
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40" />
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="40" height="40" />
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40" />
@@ -32,14 +43,13 @@ sidebar_link: true
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-plain.svg" alt="angular" width="40" height="40" />
 </p>
 
-- 🔭 I’m currently working in [IO Digital](https://iodigital.com)
-- 👯 I’m looking to collaborate on .Net Prrojects
-- 💬 Ask me about .Net Core, C#, Microsoft Azure,Micro Services, CQRS, DDD, Functional Programming, 
-- 📢 Here is my Blog [1saeed.dev](https://1saeed.dev)
 
 
-<p align="center">
- <a href="#" alt="Saeed Salehi's github stats">
-  <img src="https://github-readme-stats.vercel.app/api?username=1saeedsalehi&theme=tokyonight&show_icons=true" />
- </a>
-</p>
+<style>
+  .inline-images a:hover{
+text-decoration:none
+  }
+  .inline-images img {
+    display:inline
+  }
+  </style>
