@@ -1,15 +1,11 @@
 ---
 layout: post
-title:   Functional Programming - قسمت چهارم
+title:   Functional Programming - part 4 
 categories:
   - Programming
 tags:
   - functional-programming 
-  - برنامه نویسی تابعی
-  - تابع
   - exception
-  - استثنا
-  - خطا
 
 last_modified_at: 2020-03-18T20:45:00-05:00
 ---

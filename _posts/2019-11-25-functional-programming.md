@@ -1,12 +1,15 @@
 ---
 layout: post
-title:   Functional Programming - قسمت اول
+title:   Functional Programming - Part 1 
 categories:
   - Programming
 tags:
   - functional-programming 
-  - برنامه نویسی تابعی
-  - تابع
+  - C#
+  - c-sharp
+  - dotnet
+  - functional
+  - paradigm
 
 last_modified_at: 2019-11-25T00:00:00-05:00
 ---

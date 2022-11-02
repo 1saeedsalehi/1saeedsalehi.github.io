@@ -1,12 +1,10 @@
 ---
 layout: post
-title:   Functional Programming - قسمت پنجم
+title:   Functional Programming - part 5
 categories:
   - Programming
 tags:
   - functional-programming 
-  - برنامه نویسی تابعی
-  - تابع
   - valueobject
   - primitive-obsession
 

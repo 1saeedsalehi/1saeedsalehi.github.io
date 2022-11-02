@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ReHello World!
+title: Hello World!
 categories:
   - programming
 tags:

@@ -1,38 +1,34 @@
 ---
 layout: post
-title: من چقدر کار می کنم؟
-
+title: How much do i Work?
 
 categories:
   - LifeStyle
 tags:
-  - سبک زندگی
-  - زمان
-  - هدف
+  - time
+  - goal
+  - life-style
 ---
+I want to introduce you to a simple tool that can manage the time you work with the computer
 
-می خوام با یه ابزار ساده آشناتون کنم که می تونین زمان هایی که با کامپیوتر کار می کنید رو مدیریت کنید
+When I sit at the computer, I am completely unaware of the clock and time, there is a small software that collects information about what you are doing.
+and sends it to its server
 
-اصولا وقتی میشینیم پای کامپیوتر کلا از ساعت و زمان بی خبریم ، یه نرم افزار کوچیک هست که اطلاعات کارهایی که دارین انجام میدین رو جمع آوری می کنه
+Analyzing the time you spent on each software, it can help you to be more productive.
 
-و به سرور خودش می فرسته
+For example, `Visual Studio`, `Notepad++` or `StackOverflow Websit`, and `CodeProject` website have a positive rating as a programmer.
 
-اونجا با تحلیل این که شما تو ه رابطه ای کار می کنین می گه چقدر کارایی دارین
+And social networks, checking email during work time is a negative point
 
-مثلا به عنوان مثال نرم افزار Visaual Studio ، Notepad++ T یا سایت StackOverflow , CodeProject برای یه برنامه نویس امتیاز مثبت دارن
+You can determine in your dashboard whether a certain software or a certain site has a positive score or not
 
-و شبکه های اجتماعی ، چک کردن ایمیل در تایم کاری امتیاز منفی هست
+And every week it gives you a report that this week your performance was so much and you were so active on Facebook
 
-شما می تونین تو دشبورد خودتون تعیین کنین که فلان نرم افزار یا فلان سایت امتیاز مثبت داره یا نه
+In short, it hurts me a lot
 
-و هر هفته یه گزارش بهتون می ده که این هفته کارایی شما اینقدر بوده اینقد تو فیسبوک چرخیدی
-
-خلاصه که به درد من خیلی می خوره
-
-اگه دوس داشتین ازش استفاده کنین تو این سایت می تونید دانلودش کنید
+If you want to use it, you can download it from this website [rescuetime](https://www.rescuetime.com/)
 
 
-[rescuetime](https://www.rescuetime.com/)
 
 
 

@@ -1,12 +1,10 @@
 ---
 layout: post
-title:   Functional Programming - قسمت سوم
+title:   Functional Programming - part 3 
 categories:
   - Programming
 tags:
   - functional-programming 
-  - برنامه نویسی تابعی
-  - تابع
   - immutable
   - thread-safe
   - collection

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: فلش ویروس و فایل های مخفی
+title: command line for unhide files
 
 categories:
   - Programming
@@ -9,8 +9,7 @@ tags:
   - ویروس
 
 ---
-این دیگه برای اکثر ماها پیش اومده که فلشمون ویروسی بشه و همه فایل های روش مخفی بشن
- راه ساده و جمع و جور برای این که فایل های مخفی رو از این حالت در بیاریم
+a simple command line script to hide / unhide files 
 
 ```
 @ECHO 1saeedsalehi.ir

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:   شروع کار با Dapr 
+title:  Getting started with Dapr 
 categories:
   - Programming
 tags:
@@ -17,7 +17,7 @@ tags:
 
 last_modified_at: 2021-05-05T18:00:00-05:00
 ---
-### آشنایی با Dapr
+### Getting started with Dapr
 
 اگه شما هم درگیر توسعه اپلیکیشن ها با معماری مایکروسرویس باشید این روز ها خیلی اسم Dapr رو بشنوید
 

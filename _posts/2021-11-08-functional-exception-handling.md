@@ -1,12 +1,10 @@
 ---
 layout: post
-title:  مساله null reference exception و راه حل فانکشنال طور!
+title: handling exceptions in a functional way!
 categories:
   - programming
 tags:
   - functional-programming 
-  - برنامه نویسی تابعی
-  - تابع
   - exception
   - c#
   - null reference
@@ -14,7 +12,7 @@ tags:
 
 last_modified_at: 2021-11-08T12:00:00-05:00
 ---
-### چه جوری با نال کنار بیایم
+### Handling exceptions in a functional way!
 
 تکه کد زیر را ببینید
 
