@@ -2,7 +2,7 @@
 layout: post
 title:  Getting started with Dapr 
 categories:
-  - Programming
+  - software-engineering
 tags:
   - dapr
   - microservices

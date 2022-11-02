@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About me!
+title: About me
 sidebar_link: true
 ---
 ## Hi there, I'm Saeed Salehi 👋
@@ -16,7 +16,7 @@ Ever since I first laid my hands on my first computer (since Y2K 🪲)
 💬 you can talk with me about .Net Core, C#, Microsoft Azure,Micro Services, CQRS, DDD, Functional Programming and everything else!
 
 👯 you can find me in:
-
+      
 <p class="inline-images">
  <a href="https://linkedin.com/in/1saeedsalehi" target="_blank">
   <img src="https://img.icons8.com/fluent/48/000000/linkedin.png" />

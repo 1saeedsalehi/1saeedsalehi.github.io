@@ -2,7 +2,7 @@
 layout: post
 title: handling exceptions in a functional way!
 categories:
-  - programming
+  - software-engineering
 tags:
   - functional-programming 
   - exception

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How much do i Work?
+title: How much do I Work?
 
 categories:
   - LifeStyle

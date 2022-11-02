@@ -2,7 +2,7 @@
 layout: post
 title:   Functional Programming - part 3 
 categories:
-  - Programming
+  - software-engineering
 tags:
   - functional-programming 
   - immutable

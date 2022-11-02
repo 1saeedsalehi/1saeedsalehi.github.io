@@ -2,7 +2,7 @@
 layout: post
 title:  آموزش نصب مک بر روی Virtual Box
 categories:
-  - Programming
+  - software-engineering
 tags:
   - VirtalBox 
   - MacOS
