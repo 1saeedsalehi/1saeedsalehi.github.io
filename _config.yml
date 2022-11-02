@@ -3,14 +3,14 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            یک سعید صالحی
-tagline:          'داستان یک برنامه نویس گیک'
-description:      'داستان یک برنامه نویس گیک طور'
-url:              http://1saeedsalehi.ir
+title:            1saeed.dev
+tagline:          'story of a developer :)'
+description:      'stories from a developer'
+url:              https://1saeed.dev
 baseurl:          # the optional subpath of your site, e.g. "/blog"
 
 author:
-  name:           'سعید صالحی'
+  name:           'Saeed Salehi'
   url:            https://twitter.com/1saeedsalehi
 
 paginate:         5

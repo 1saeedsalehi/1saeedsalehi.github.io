@@ -1,8 +1,7 @@
 <div id="sidebar">
   <header>
-    <img src="https://avatars0.githubusercontent.com/u/3543562?s=460&v=4" alt="saeed salehi" class="profile"/>
     <{% if page.layout == "index" %}h1{% else %}div{% endif %} class="site-title">
-      <a href="{{ site.baseurl }}/">
+      <a href="{{ "/" | relative_url }}">
         {% unless page.url == "/" %}
           <span class="back-arrow icon">{% include svg/back-arrow.svg %}</span>
         {% endunless %}
@@ -14,7 +13,7 @@
   {% include sidebar-nav-links.html %}
 
   {% if site.version %}
-    <span class="site-version">نسخه سایت {{ site.version }}</span>
+    <span class="site-version">Currently v{{ site.version }}</span>
   {% endif %}
 
   {% include sidebar-icon-links.html %}
