@@ -10,7 +10,7 @@ tags:
 last_modified_at: 2020-03-18T20:45:00-05:00
 ---
 ### برخورد با Exception ها
-چنان چه قسمت های قبلی سری آموزش برنامه نویسی تابعی Functional Programming را مطالعه نکردین پیشنهاد میکنم قبلا اون ها [+](http://1saeedsalehi.ir/programming/2020/02/15/functional-programming-3-refactoring-to-immutable.html) و [+](http://1saeedsalehi.ir/programming/2019/11/30/functional-programming-2-examples.html) و [+](http://1saeedsalehi.ir/programming/2019/11/25/functional-programming.html) رو قبل از شروع بخونید
+چنان چه قسمت های قبلی سری آموزش برنامه نویسی تابعی Functional Programming را مطالعه نکردین پیشنهاد میکنم قبلا اون ها [+](http://1saeed.dev/programming/2020/02/15/functional-programming-3-refactoring-to-immutable.html) و [+](http://1saeed.dev/programming/2019/11/30/functional-programming-2-examples.html) و [+](http://1saeed.dev/programming/2019/11/25/functional-programming.html) رو قبل از شروع بخونید
 تو این قسمت قراره که تاثیر استثناها (exception) رو بر روی کد بررسی کنیم و راهکاری از جنس functional براش ارائه کنیم.
 
 

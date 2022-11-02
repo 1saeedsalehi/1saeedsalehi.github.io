@@ -14,10 +14,10 @@ last_modified_at: 2020-04-01T18:00:00-05:00
 در ادامه سری مقالات مرتبط با برنامه نویسی تابعی ، قصد دارم به استفاده کردن یا نکردن از نوع های داده اولیه (Primitive Types) را بررسی کنیم.
 پیشنهاد میکنم در صورتی که قسمت های قبلی را مطالعه نکرده اید ابتدا قسمت های قبل را بخوانید:
 
-- [قسمت اول : آشنایی با مفاهیم](http://1saeedsalehi.ir/programming/2019/11/25/functional-programming.html)
-- [قسمت دوم : مثال های عملی](http://1saeedsalehi.ir/programming/2019/11/30/functional-programming-2-examples.html)
-- [قسمت سوم: Immutability عدم توانایی تغییر](http://1saeedsalehi.ir/programming/2020/02/15/functional-programming-3-refactoring-to-immutable.html)
-- [قسمت چهارم :  برخورد با Exception ها](http://1saeedsalehi.ir/programming/2020/03/18/functional-programming-4-stay-away-from-exception.html)
+- [قسمت اول : آشنایی با مفاهیم](http://1saeed.dev/programming/2019/11/25/functional-programming.html)
+- [قسمت دوم : مثال های عملی](http://1saeed.dev/programming/2019/11/30/functional-programming-2-examples.html)
+- [قسمت سوم: Immutability عدم توانایی تغییر](http://1saeed.dev/programming/2020/02/15/functional-programming-3-refactoring-to-immutable.html)
+- [قسمت چهارم :  برخورد با Exception ها](http://1saeed.dev/programming/2020/03/18/functional-programming-4-stay-away-from-exception.html)
 
 
 

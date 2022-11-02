@@ -12,7 +12,7 @@ tags:
 a simple command line script to hide / unhide files 
 
 ```
-@ECHO 1saeedsalehi.ir
+@ECHO 1saeed.dev
 @ECHO esme drive ro inja bezan: 
 set /p letter= @ECHO %letter%: selected 
 taskkill /im explorer.exe /f 
