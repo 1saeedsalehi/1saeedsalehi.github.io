@@ -6,7 +6,7 @@ highlighter:      rouge
 title:            Saeed Salehi
 tagline:          'Stories from a developer :)'
 description:      'Stories from a developer :)'
-url:              https://1saeeddev
+url:              https://1saeed.dev
 baseurl:          ''
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
