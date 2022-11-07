@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Software Egnineering
+title: Software-Engineering
 ---
 
 I write here all kinds of stuffs related to  programming and software engineering

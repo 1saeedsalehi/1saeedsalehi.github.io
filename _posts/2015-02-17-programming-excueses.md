@@ -3,11 +3,11 @@ layout: post
 title: Programming excuses! 
 
 categories:
-  - LifeStyle
+  - Life-Style
 tags:
   - programming
   - excuese
-  - lifestyle
+  - Life-Style
 ---
 
 Hey 

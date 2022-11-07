@@ -1,6 +1,6 @@
 ---
 layout: category
-title: LifeStyle 
+title: Life-Style 
 ---
 
 Most of the things I write in this category are my personal opinions

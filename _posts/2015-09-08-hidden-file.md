@@ -3,7 +3,7 @@ layout: post
 title: command line for unhide files
 
 categories:
-  - software-engineering
+  - Software-Engineering
 tags:
   - virus
   - ویروس

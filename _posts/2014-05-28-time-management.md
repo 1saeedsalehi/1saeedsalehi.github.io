@@ -3,11 +3,10 @@ layout: post
 title: How much do I Work?
 
 categories:
-  - LifeStyle
+  - Life-Style
 tags:
   - time
   - goal
-  - life-style
 ---
 I want to introduce you to a simple tool that can manage the time you work with the computer
 

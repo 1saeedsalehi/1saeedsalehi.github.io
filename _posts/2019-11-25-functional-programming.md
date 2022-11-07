@@ -2,7 +2,7 @@
 layout: post
 title:   Functional Programming - Part 1 
 categories:
-  - software-engineering
+  - Software-Engineering
 tags:
   - functional-programming 
   - C#

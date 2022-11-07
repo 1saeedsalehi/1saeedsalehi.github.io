@@ -2,7 +2,8 @@
 layout: post
 title: Hello World!
 categories:
-  - software-engineering
+  - Software-Engineering
+  - Life-Style
 tags:
   
 
