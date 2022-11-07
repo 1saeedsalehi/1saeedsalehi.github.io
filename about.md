@@ -5,15 +5,19 @@ sidebar_link: true
 ---
 ## Hi there, I'm Saeed Salehi 👋
 
+A T-Shaped Back-end developer with hands-on experience in .Net Core and C# that tries to solve problems differently 😁 A.K.A software engineer 🧑‍💻, maybe a geek 🤓 and all-around debugger 🪲
 
 ### What I do
+
+
 I Build software at [iO Digital](https://iodigital.com)
 
-Ever since I first laid my hands on my first computer (since Y2K 🪲)
 
-🧑‍💻 I've loved computers and all the wonderful things you can make them.
+I believe that sharing what we build, how we build it, and the mistakes we made along the way improves the experience and saves time for the next thousands of people doing similar. For the same reasons 🤘
 
-💬 you can talk with me about .Net Core, C#, Microsoft Azure,Micro Services, CQRS, DDD, Functional Programming and everything else!
+🧑‍💻 Ever since I first laid my hands on my first computer (since Y2K 🪲) I'd loved computers and all the wonderful things you can make them.
+
+💬 you can talk with me about .Net Core, C#, Microsoft Azure, Micro Services, CQRS, DDD, Functional Programming and everything else!
 
 👯 you can find me in:
       
