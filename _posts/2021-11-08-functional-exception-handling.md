@@ -12,49 +12,38 @@ tags:
 
 last_modified_at: 2021-11-08T12:00:00-05:00
 ---
-### Handling exceptions in a functional way!
 
-تکه کد زیر را ببینید
+Please see the code below:
 
 ```
 Customer customer = _repository.GetById(id);
 Console.WriteLine(customer.Name);
 ```
+Are you familiar with this code? What problem do you see?
 
-این کد برای شما آشناست؟ چه مشکلی رو میبینید؟
+The problem here is that we are not sure if the `getById` method can return null or not. If there is a possibility that this code returns null, we will receive a `NullReferenceException` error when we run the code.
 
-مشکل اینجاست که ما مطمئن نیستیم که متد getById میتونه null برگردونه یا نه؟
-اگه احتمال داشته باشه که این کد null برگردونه ، زمانی که کد رو اجرا میکنیم خطای NullReferenceException دریافت خواهیم کرد.
+The disaster happens when we may not notice this issue until we test the software with real data/customer environment/production, and we cannot easily determine where it has been turned into null!
 
-فاجعه جایی اتفاق میوفته که تا زمان تست نرم افزار با دیتای واقعی / محیط مشتری / پروداکشن احتمالا متوجه این مساله نخواهیم شد و  به راحتی نمیتونیم بفهمیم که این کجا تبدیل به null شده!
-
-احتمالا هر چقد سریع تر بفهمیم ، زمان کمتری میگیره حل کردنش.
-احتمالا بهترین راه حل اینه که کامپایلر بهمون خطا بده!
+The faster we understand, the less time it takes to solve it. Probably the best solution is for the compiler to give us an error!
 
 ```
 Customer! customer = _repository.GetById(id);
 Console.WriteLine(customer.Name);
 ```
+The meaning of `Customer!` is that this is a non-null object. This means that there is no way to convert this object to null in any way.
 
- معنی `Customer!` اینه که این یک  نوغ غیر نال هست.
- یعنی به هیچ شکلی امکان تبدیل این آبجکت به نال وجود نداره.
+Can you imagine a world without a null reference exception error? I can't!
 
- میتونید دنیایی رو تصور کنید که خطای null reference exception وجود نداشته باشه؟ من نمیتونم!
+This possibility has been provided in C# from version 8 onwards. To see how you can use this feature, see [here](https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references).
 
-این امکان در سی شارپ از نسخه 8 به بعد فراهم شده
-برای این که ببینید چه جوری میتونید از این فیچر استفاده کنید [اینجا](https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references) رو ببینید
+But since you may not be able to upgrade to a higher version of C# in your project for any reason, or you may not want to enable this feature in the entire project, we will discuss an alternative solution here.
 
-اما از اونجایی که ممکنه شما به هر دلیلی امکان ارتقا به نسخه سی شارپ بالاتر تو پروژه نداشته باشید
-یا نخواین که این فیچر رو تو کل پروژه فعال کنید ما یه راه حل جانبی رو با هم اینجا بررسی میکنیم
+How can we have a null value?
+For this, we need a monad in this example we call it MayBe.
 
-البته میتونید از راهکاری که اینجا ازائه میدیم در کنار nullable reference type های c# استفاده کنید و ترکیب قوی تری رو درست کنید!
+The code in its simplest form can be like this:
 
-### چه جوری مقدار نال داشته باشیم؟
-
-برای این کار ما یک موناد (monad) نیاز داریم 
-تو این مثال اسمشو میزاریم MayBe
-
-کد اون تو ساده ترین حالت میتونه به این شکل باشه
 
 ```
 public struct Maybe<T>
@@ -92,20 +81,17 @@ public struct Maybe<T>
     }
 }
 ```
+As you can see, we used the AllowNull attribute in the input, which allows us to use inputs that have a null type.
 
-همونجور که میبینید ما توی ورودی از اتربیوت AllowNull استفاده کردیم که اجازه میده از ورودی هایی که جنس اونا null هستن بتونیم استفاده کنیم
-
-اگه بخوایم تکه کد بالا رو بازنویسی کنیم احتمالا به شکل زیر میشه
+If we want to rewrite the code above, we can do it like this.
 
 ```
 Maybe<Customer> customer = _repository.GetById(id);
 ```
+From now on, we can understand by looking at this code that this method may return null
+This goes back to the principle of functional honesty in functional programming
 
-از الان به بعد میتونیم با نگاه کردن به این کد میتونیم بفهمیم که ممکنه این متد null برگردونه
-این بر میگرده به اصل fucntion honesty توی functional progamming
-
-در تکمیل این مطلب میتونید پیاده سازی های مختلفی که از این monad هست رو ببینید
-احتمالا یکی از بهترین پیاده سازی ها رو میتونید اینجا پیدا کنید
-
+In completing this article, you can see different implementations of this monad
+You can probably find one of the best implementations here
 [Language.Ext Github](https://github.com/louthy/language-ext#null-reference-problem)
 
