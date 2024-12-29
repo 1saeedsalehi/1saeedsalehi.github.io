@@ -1,6 +1,6 @@
 ---
 title: C# 11 functional style features
-author: Saeed Salehi
+author: saeed
 date: 2023-01-10T00:00 +0800
 categories: [Software Engineering]
 tags: [Functional Programming,C#.NET,Functional,Programming Paradigms,null, nullable reference type]

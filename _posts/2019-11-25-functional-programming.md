@@ -1,7 +1,7 @@
 ---
 
 title: git for absent-mindeds
-author: Saeed Salehi
+author: saeed
 date: 2019-11-25T14:09:00 +0800
 categories: [Software Engineering]
 tags: [Functional Programming,C#.NET,Functional,Programming Paradigms]

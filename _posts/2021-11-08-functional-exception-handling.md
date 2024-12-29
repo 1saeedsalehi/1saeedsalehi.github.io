@@ -1,6 +1,6 @@
 ---
-title: Getting started with Dapr 
-author: Saeed Salehi
+title: Handling exceptions in a functional way
+author: saeed
 date: 2021-11-08T00:00 +0800
 categories: [Software Engineering]
 tags: [Functional Programming,C#.NET,Functional,Programming Paradigms,exception,c#,null reference,exception]

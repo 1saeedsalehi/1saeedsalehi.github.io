@@ -1,6 +1,6 @@
 ---
 title: Getting started with Dapr 
-author: Saeed Salehi
+author: saeed
 date: 2020-05-05T00:00 +0800
 categories: [Software Engineering]
 tags: [dapr,microservices,miniservices,sidecar,software-architecture]

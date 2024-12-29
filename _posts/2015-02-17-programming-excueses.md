@@ -1,7 +1,7 @@
 ---
 
 title : Programming excuses! 
-author: Saeed Salehi
+author: saeed
 date: 2015-02-17 16:00:00 +0800
 categories: [Fun]
 tags: [Fun]

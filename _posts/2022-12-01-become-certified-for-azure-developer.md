@@ -1,6 +1,6 @@
 ---
 title: My experience in passing microsoft certification exam
-author: Saeed Salehi
+author: saeed
 date: 2021-11-08T00:00 +0800
 categories: [Software Engineering]
 tags: [Azure,certification,cloud, az 204]

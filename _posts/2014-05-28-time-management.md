@@ -1,6 +1,6 @@
 ---
 title : A Simple Tool to Help You Manage Your Time
-author: Saeed Salehi
+author: saeed
 date: 2014-05-28 14:10:00 +0800
 categories: [Productivity,Tool]
 tags: [Time Management,Productivity,RescueTime,Focus Tools,Work Efficiency]

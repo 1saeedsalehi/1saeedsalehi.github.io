@@ -1,6 +1,6 @@
 ---
 title:   Functional Programming - part 2 
-author: Saeed Salehi
+author: saeed
 date: 2019-11-30T00:00 +0800
 categories: [Software Engineering]
 tags: [Functional Programming,C#.NET,Functional,Programming Paradigms,immutable,thread-safe,collection]

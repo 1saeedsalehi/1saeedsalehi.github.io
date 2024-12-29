@@ -1,6 +1,6 @@
 ---
 title:  Functional Programming - part 3
-author: Saeed Salehi
+author: saeed
 date: 2020-02-15T00:00 +0800
 categories: [Software Engineering]
 tags: [Functional Programming,C#.NET,Functional,Programming Paradigms]
