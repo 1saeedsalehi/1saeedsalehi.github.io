@@ -1,5 +1,5 @@
 ---
-title: Handling exceptions in a functional way
+title: handling exceptions in a functional way
 author: saeed
 date: 2021-11-08T00:00 +0800
 categories: [Software Engineering]

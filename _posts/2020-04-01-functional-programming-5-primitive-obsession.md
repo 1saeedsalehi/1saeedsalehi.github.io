@@ -19,7 +19,7 @@ If you haven't read the previous parts, I recommend starting with the following:
 - [Part 1: Introduction to Concepts](/posts/functional-programming/)
 - [Part 2: Practical Examples](/posts/functional-programming-2-examples/)
 - [Part 3: Immutability](/posts/functional-programming-3-refactoring-to-immutable/)
-- [Part 4: Dealing with Exceptions](h/posts/functional-programming-4-stay-away-from-exception/)
+- [Part 4: Dealing with Exceptions](/posts/functional-programming-4-stay-away-from-exception/)
 
 In domain modeling, we often use primitive types like `int`, `string`, and so on. In fact, we can say that we have an obsession with these primitive data types. 
 

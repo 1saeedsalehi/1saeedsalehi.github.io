@@ -20,4 +20,4 @@ here I find some funny excuses that **every programmer** used at least once :)
 - It's just some unlucky coincidence
 - I thought I finished that
 
-[Want to see more?](http://programmingexcuses.com/)
+[Want to see more?](programmingexcuses.com)
