@@ -1,33 +1,25 @@
 ---
-layout: post
-title: How much do I Work?
-
-categories:
-  - Life-Style
-tags:
-  - time
-  - goal
+title : A Simple Tool to Help You Manage Your Time
+author: Saeed Salehi
+date: 2014-05-28 14:10:00 +0800
+categories: [Productivity,Tool]
+tags: [Time Management,Productivity,RescueTime,Focus Tools,Work Efficiency]
 ---
-I want to introduce you to a simple tool that can manage the time you work with the computer
 
-When I sit at the computer, I am completely unaware of the clock and time, there is a small software that collects information about what you are doing.
-and sends it to its server
+# A Simple Tool to Help You Manage Your Time  
 
-Analyzing the time you spent on each software, it can help you to be more productive.
+Do you often lose track of time when working on your computer? I do. Once I sit down, I completely forget about the clock.  
 
-For example, `Visual Studio`, `Notepad++` or `StackOverflow Websit`, and `CodeProject` website have a positive rating as a programmer.
+That’s why I started using RescueTime. It’s a small tool that tracks how you spend your time on your computer. It shows you which apps and websites you use and analyzes how much time you spend on each.  
 
-And social networks, checking email during work time is a negative point
+Here’s how it works:  
+- It gives **positive ratings** for productive tools like **Visual Studio**, **Notepad++**, or websites like **Stack Overflow**.  
+- It gives **negative ratings** for distractions like social media or checking email during work hours.  
 
-You can determine in your dashboard whether a certain software or a certain site has a positive score or not
+You can customize these ratings in your RescueTime dashboard to fit your goals. Every week, it sends you a report showing how productive you were and how much time you spent on distractions.  
 
-And every week it gives you a report that this week your performance was so much and you were so active on Facebook
+For me, these reports have been a wake-up call. They’ve helped me cut down on time-wasting activities and focus more on getting work done.  
 
-In short, it hurts me a lot
+If you want to try it, you can download RescueTime here: [RescueTime](https://www.rescuetime.com/).  
 
-If you want to use it, you can download it from this website [rescuetime](https://www.rescuetime.com/)
-
-
-
-
-
+Give it a shot—it’s a game-changer!  

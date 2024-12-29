@@ -1,33 +1,28 @@
 ---
-layout: post
-title:   Functional Programming - part 3 
-categories:
-  - Software-Engineering
-tags:
-  - functional-programming 
-  - immutable
-  - thread-safe
-  - collection
+title:  Functional Programming - part 3
+author: Saeed Salehi
+date: 2020-02-15T00:00 +0800
+categories: [Software Engineering]
+tags: [Functional Programming,C#.NET,Functional,Programming Paradigms]
+image: 
+    path: /assets/img/method-honesty.png
+    alt: Method honesty
 
-last_modified_at: 2020-02-16T12:10:00-05:00
 ---
+# Immutability in Functional Programming
 
-در ادامه پست های مربوط به برنامه نویسی تابعی ، قصد دارم بیشتر وارد کد شویم و مباحث عنوان شده را در دنیای کد پیاده سازی کنیم. هدف این قسمت refactor کردن کد موجود به یک معماری immutable هست
-پیشتر درباره immutable ها صحبت کردیم.
-ابتدا برای یکسان سازی ادبیات مورد استفاده چند کلمه را مجددا تعریف خواهیم کرد.
+In this continuation of posts on functional programming, I aim to dive deeper into the code and implement the discussed concepts in the world of programming. The goal of this section is to refactor existing code into an immutable architecture. We previously discussed immutability, so let’s start by redefining a few key terms to ensure clarity.
 
-Immutability :  عدم توانایی تغییر داده
+### Definitions
 
-State :  داده هایی که در طول زمان تغییر میکنند
+- **Immutability**: The inability to modify data.
+- **State**: Data that changes over time.
+- **Side Effect**: A change that occurs in the data.
 
-Side Effect :  تغییری که روی داده ها اتفاق می افتد
+In the code snippet below, I have tried to illustrate the difference between a **Stateless** class and a **Stateful** one.
 
-
-در قطعه کد زیر سعی شده تفاوت یک کلاس Stateless و stateful را به سادگی نشان دهم.
-
-
-```
-//Stateful
+```csharp
+// Stateful
 public class UserProfile
 {
     private User _user;
@@ -39,7 +34,7 @@ public class UserProfile
     }
 }
 
-//Stateless
+// Stateless
 public class User
 {
     public User(int id, string name)
@@ -53,32 +48,32 @@ public class User
 }
 ```
 
-### چرا Immutable بودن مهم است؟
+### Why is Immutability Important?
+Every mutable operation is equivalent to unclear code. In fact, the dependency of every action on state introduces instability into the code. For instance, imagine a multithreaded operation where several threads simultaneously alter the state. Managing this would lead to unreadable code and increase complexity.
 
-هر عمل mutable معادل کد غیر شفاف است. در واقع وابستگی هر عملی که انجام می دهیم به state باعث میشود که شرایط ناپایدار در کد داشته باشیم. به طور مثال در یک عملیات  چند نخی تصور کنید که چندین نخ به طور همزمان می توانند state رو تغییر دهند و مدیریت این قضیه باعث به وجود آمدن کد های ناخوانا و تحمیل پیچیدگی بیشتر به کد خواهد شد.
-
-![method honesty](/assets/images/method-honesty.png)
-
-در واقع انتظار داریم که به ازای یک ورودی بر اساس بدنه متد یک خروجی داشته باشیم ، ولی در واقعیت تاثیری که اجرای متد بر روی state کل کلاس خواهد گذاشت از دید ما پنهان است و باعث به وجود آمدن مشکلات بعدی خواهد شد.
+![Method Honesty](/assets/img/method-honesty.png)
 
 
-برای مثال قطعه کد بالا را به صورت Honest بازنویسی میکنیم
+Ideally, for a given input, the method body should return a consistent output. However, in reality, the impact that method execution has on the state of the entire class is hidden from us, which can lead to future problems.
 
-```
+Let’s rewrite the code above to make it more honest:
+
+```csharp
 public class UserProfile
-    {
+{
     private readonly User _user;
     private readonly string _address;
 
-    public UserProfile(User user,string address)
+    public UserProfile(User user, string address)
     {
         _user = user;
         _address = address;
     }
+
     public UserProfile UpdateUser(int userId, string name)
     {
         var newUser = new User(userId, name);
-        return  new UserProfile(newUser,_address);
+        return new UserProfile(newUser, _address);
     }
 }
 
@@ -96,67 +91,64 @@ public class User
 
 ```
 
-در این مثال  متد UpdateUser به جای Void یک شی از جنس کلاس UserProfile را بر میگرداند . کلاس UserProfile هم برای وهله سازی نیاز به یک شی از جنس User و Address دارد بنابراین مطمئن هستیم که مقدار دهی شده اند.
-نکته دیگر در قطعه کد بالا این است که به ازای هر بار فراخوانی متد یک شی جدید بدون وابستگی به وهله سازی اشیا دیگر برگردانده میشود.
+In this example, the `UpdateUser` method now returns an instance of the `UserProfile` class, rather than void. The `UserProfile` class, in turn, requires a `User` object and an address to instantiate, ensuring they are properly initialized. Another important note here is that each method call returns a new object, without being dependent on the instantiation of other objects.
 
+### How Immutability Benefits Us:
+- Improved Code Readability: The code becomes easier to understand and maintain.
+- Centralized Validation: We have one clear place to validate the object’s integrity.
+- Thread-Safety: Immutability inherently provides thread safety.
 
-Immutable بودن باعث می شود:
+However, working with immutable objects has some drawbacks, such as increased memory and CPU usage. Since objects are never mutated, more objects will be created in the process. In the .NET, there are optimizations for working with immutable objects, such as the `ImmutableList` class, which reduces overhead and minimizes the burden on `garbage collection (GC)`.
 
-1.	خوانایی کد افزایش پیدا کند
-2.	یک جای واحد برای Validate کردن داشته باشیم
-3.	به صورت ذاتی Thread Safe باشیم
+**Example**
 
-محدودیت هایی که در کار با اشیا Immutable باید در نظر داشته باشیم میتوان به مصرف بالای رم و سی پی یو بیشتر اشاره کرد
-در واقع به نسبت حالت mutate تعداد آبجکت های بیشتری ساخته خواهند شد.
-در فریمورک دات نت برای کار با اشیا immutable امکاناتی در نظر گرفته شده که این هزینه را کاهش دهد
-به طور مثال ما می توانیم از کلاس ImmutableList استفاده کنیم و از ایجاد اشیا اضافه تر و تحمیل بار اضافی به GC جلوگیری کنیم.
-
-
-مثال
-
-```
-//Create Immutable List
+```csharp
+// Create Immutable List
 ImmutableList<string> list = ImmutableList.Create<string>();
 ImmutableList<string> list2 = list.Add("Salam");
 
-
-//Builder
+// Builder
 ImmutableList<string>.Builder builder = ImmutableList.CreateBuilder<string>();
-builder.Add("avali");
-builder.Add("dovomi");
-builder.Add("sevomi");
+builder.Add("first");
+builder.Add("second");
+builder.Add("third");
 
 ImmutableList<string> immutableList = builder.ToImmutable();
-
 ```
 
-### چطور با side effect کنار بیایم؟
-یکی از پترن های رایج برای این کار مفهوم جدا سازی  Command/Query است. به طور ساده  تمامی عملیاتی که تاثیر گذار هستند را به صورت Command در نظر میگیریم. Command ها معمولا هیچ نوعی را بازگشت نمیدهند و همینطور بر عکس این قضیه برای Query ها صادق است.
-اشتباه رایج درباره این الگو ، محدود کردن این الگو به معماری های خاص مانند Domain Driven می باشد در صورتی که الزامی برای رعایت این الگو در سایر معماری ها وجود ندارد.
+### How to Deal with Side Effects?
+A common pattern for managing side effects is the **Command/Query Separation** principle. Simply put, we consider all operations that produce side effects as **Commands**, which generally return nothing, and **Queries**, which return data without **altering** the system's state.
+
+A common misconception about this pattern is limiting it to specific architectures like Domain-Driven Design (DDD), but there is no strict requirement to adhere to it in other architectures.
 
 
-![command query separation](/assets/images/command-query-separation.png)
-
-به مثال زیر دقت کنید. سعی کردم قسمت های Command و Query را از هم جدا کنم
+![command query separation](/assets/img/command-query-separation.png)
 
 
-![command query code sample](/assets/images/command-query-code.png)
-
-در واقع هر اپلیکیشن شامل دو قسمت می تواند باشد 
+Consider the example below, where I separated the Command and Query components:
 
 
-قسمتی که منطق بیزینسی برنامه پیاده سازی می شود که باید به صورت Immutable باشد و خروجی را تولید میکند و قسمت دیگر برنامه که خروجی تولید شده برای ذخیره سازی وضعیت سیستم استفاده می کند.
+![command query code sample](/assets/img/command-query-code.png)
 
-![application architecutre](/assets/images/)
 
-در واقع یک هسته Immutable ورودی را دریافت میکند و خروجی های مورد نیاز را تولید میکند و همه این ها در دل یک پوسته Mutable پیاده سازی می شوند که ما در اینجا به آن اصطلاحا Mutable Shell میگوییم.
+An application can generally be divided into two parts:
 
-![mutable-shell-immutable-core](/assets/images/application.png)
+- **Business Logic**: The part of the application that implements the business rules, which should be immutable and produce outputs.
+- **Mutable Shell**: The part that uses the produced output to store or manage system state.
 
-برای مسائلی که در بالا صحبت شد نمونه آماده کردم. این نمونه  به طور ساده یک سیستم مدیریت نوبت است که نوبت ها را در فایل ذخیره / بازیابی میکند (mutate) و منطق مربوط به نوبت ها و زمان ویزیت آن میتواند به صورت immutable پیاده شود.
-این کد در دو حالت functional و غیر functional پیاده سازی شده تا به خوبی تفاوت آن در حالت قبل و بعد از برنامه نویسی تابعی بتوانیم درک کنیم.
-به جهت خوانایی بیشتر و دسترسی به کد ها ، آن را روی گیتهاب قرار داده شما میتوانید از [اینجا](https://github.com/1saeedsalehi/Immutability) سورس کد مورد نظر را بررسی کنید.
-سعی شده در این مثال تمامی مواردی که در این قسمت ذکر شده را پیاده سازی کنیم
+Essentially, the core of the application is Immutable, taking inputs and generating the necessary outputs, while all these processes occur within a Mutable Shell, which is responsible for interacting with the system's state.
 
-امیدوارم که مطالب مربوط به برنامه نویسی تابعی یا functional programming توانسته باشد دیدگاه جدیدی به کد هایی که مینویسیم بدهد.
-در  قسمت های بعدی به مواردی مانند مدیریت exception ها و کار با null ها و ... خواهیم پرداخت. 
+
+![mutable-shell-immutable-core](/assets/img/application.png)
+
+
+
+For the aforementioned concepts, I have prepared a simple example: a queue management system. The system stores/retrieves appointments (mutable) and the logic for managing appointment schedules can be implemented in an immutable fashion.
+
+This code has been implemented both functionally and non-functionally, which helps us clearly understand the difference before and after applying functional programming techniques.
+
+For better readability and access to the code, I have uploaded it on [GitHub](https://github.com/1saeedsalehi/Immutability). You can check [the source code here](https://github.com/1saeedsalehi/Immutability). The example includes all the concepts discussed in this post.
+
+I hope the topics covered regarding functional programming have provided a fresh perspective on the code we write. In future posts, I will address topics like exception management, working with null values, and more.
+
+

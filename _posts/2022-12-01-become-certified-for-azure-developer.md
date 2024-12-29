@@ -1,17 +1,16 @@
 ---
-layout: post
 title: My experience in passing microsoft certification exam
-categories:
-  - Software-Engineering
-tags:
-  - Azure 
-  - certification
-  - cloud
-  - exam
+author: Saeed Salehi
+date: 2021-11-08T00:00 +0800
+categories: [Software Engineering]
+tags: [Azure,certification,cloud, az 204]
+image: 
+  path: /assets/img/az-204-cert.png
+  alt: az 204 certificate
+
+
 ---
 
-
-![My certificate](/assets/images/az-204-cert.png "My certificate")
 
 Hey there! 👋
 

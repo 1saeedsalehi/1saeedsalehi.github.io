@@ -1,24 +1,19 @@
 ---
-layout: post
 title:   Functional Programming - part 2 
-categories:
-  - Software-Engineering
-tags:
-  - functional-programming 
-  - immutable
-  - thread-safe
-  - collection
-
-last_modified_at: 2019-11-30T00:00:00-05:00
+author: Saeed Salehi
+date: 2019-11-30T00:00 +0800
+categories: [Software Engineering]
+tags: [Functional Programming,C#.NET,Functional,Programming Paradigms,immutable,thread-safe,collection]
 ---
-در [قسمت قبلی](http://1saeed.dev/programming/2019/11/25/functional-programming.html) این مقاله، با مفاهیم تئوری برنامه نویسی تابعی آشنا شدیم. در این مطلب قصد دارم بیشتر وارد کد نویسی شویم و الگوها و ایده‌های پیاده سازی برنامه نویسی تابعی را در #C مورد بررسی قرار دهیم.
+
+In [the previous part of this article](/posts/functional-programming/), we explored the theoretical concepts of functional programming. In this post, I will focus more on coding and examine the patterns and ideas of functional programming in #C.
 
 ### Immutable Types
-هنگام ایجاد یک Type جدید باید سعی کنیم دیتای داخلی Type را تا حد ممکن Immutable کنیم. حتی اگر نیاز داریم یک شیء را برگردانیم، بهتر است که یک instance جدید را برگردانیم، نه اینکه همان شیء موجود را تغییر دهیم. نتیحه این کار نهایتا به شفافیت بیشتر و Thread-Safe بودن منجر خواهد شد.
+When creating a new type, we should strive to make its internal data as immutable as possible. Even if we need to return an object, it's better to return a new instance rather than modifying the existing one. This will ultimately lead to more clarity and thread safety.
 
-*مثال:*
+*Example:*
 
-```
+```csharp
 public class Rectangle
 {
     public int Length { get; set; }
@@ -34,17 +29,19 @@ public class Rectangle
 Rectangle r = new Rectangle();
 r.Length = 5;
 r.Height = 10;
-r.Grow(10, 10);// r.Length is 15, r.Height is 20, same instance of r
-```
-
-در این مثال، Property های کلاس، از بیرون قابل Set شدن می‌باشند و کسی که این کلاس را فراخوانی میکند، هیچ ایده‌ای را درباره‌ی مقادیر قابل قبول آن‌ها ندارد. بعد از تغییر بهتر است وظیفه‌ی ایجاد آبجکت خروجی به عهده تابع باشد، تا از شرایط ناخواسته جلوگیری شود:
+r.Grow(10, 10); // r.Length is 15, r.Height is 20, same instance of r
 
 ```
+
+
+In this example, the class properties can be set from the outside, and anyone calling this class has no idea about the acceptable values. After modification, the responsibility of creating the output object should lie with the function itself to avoid unintended conditions:
+
+```csharp
 // After
 public class ImmutableRectangle
 {
-    int Length { get; }
-    int Height { get; }
+    public int Length { get; }
+    public int Height { get; }
 
     public ImmutableRectangle(int length, int height)
     {
@@ -57,44 +54,46 @@ public class ImmutableRectangle
 }
 
 ImmutableRectangle r = new ImmutableRectangle(5, 10);
-r = r.Grow(10, 10);// r.Length is 15, r.Height is 20, is a new instance of r
-```
-
-با این تغییر در ساختار کد، کسی که یک شیء از کلاس ImmutableRectangle را ایجاد میکند، باید مقادیر را وارد کند و مقادیر Property ها به صورت فقط خواندنی از بیرون کلاس در دسترس هستند. همچنین در متد Grow، یک شیء جدید از کلاس برگردانده می‌شود که هیچ ارتباطی با کلاس فعلی ندارد.
-
-### استفاده از Expression بجای Statement
-
-یکی از موارد با اهمیت در سبک کد نویسی تابعی را در مثال زیر ببینید:
+r = r.Grow(10, 10); // r.Length is 15, r.Height is 20, new instance of r
 
 ```
+
+With this change, anyone creating an object of the `ImmutableRectangle` class must provide values, and the properties are accessible as *read-only* from outside the class. Also, in the `Grow` method, a new object of the class is returned, which has no connection to the current instance.
+
+
+### Using Expressions Instead of Statements
+
+One key aspect of functional programming style can be seen in the following example:
+
+```csharp
 public static void Main()
 {
     Console.WriteLine(GetSalutation(DateTime.Now.Hour));
 }
 
-// imparitive, mutates state to produce a result
+// imperative, mutates state to produce a result
 /*public static string GetSalutation(int hour)
 {
-    string salutation; // placeholder value
+    string salutation;
 
     if (hour < 12)
         salutation = "Good Morning";
     else
         salutation = "Good Afternoon";
 
-    return salutation; // return mutated variable
+    return salutation; 
 }*/
 
 public static string GetSalutation(int hour) => hour < 12 ? "Good Morning" : "Good Afternoon";
 ```
 
-به خط‌های کامنت شده دقت کنید؛ می‌بینیم که یک متغیر، تعریف شده که نگه دارنده‌ای برای خروجی خواهد بود. در واقع به اصطلاح آن را mutate می‌کند؛ در صورتیکه نیازی به آن نیست. ما می‌توانیم این کد را به صورت یک عبارت (Expression) در آوریم که خوانایی بیشتری دارد و کوتاه‌تر است.
+Notice the commented-out lines; a variable is defined to hold the output value, which is mutated. This is unnecessary. We can convert this into an expression that is shorter and more readable.
 
-### استفاده از High-Order Function ها برای ایجاد کارایی بیشتر
 
-در قسمت قبلی درباره توابع HOF صحبت کردیم. به طور خلاصه توابعی که یک تابع را به عنوان ورودی میگیرند و یک تابع را به عنوان خروجی برمی‌گردانند. به مثال زیر توجه کنید:
+### Using Higher-Order Functions for Efficiency
+in the previous part, we discussed higher-order functions (HOF). In short, these are functions that take another function as an input and return a function as output. Consider the following example:
 
-```
+```csharp
 public static int Count<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
 {
     int count = 0;
@@ -113,14 +112,15 @@ public static int Count<TSource>(this IEnumerable<TSource> source, Func<TSource,
     return count;
 }
 ```
-این قطعه کد، مربوط به متد Count کتابخانه‌ی Linq می‌باشد. در واقع این متد تعدادی از چیز‌ها را تحت شرایط خاصی می‌شمارد. ما دو راهکار داریم، برای هر شرایط خاص، پیاده سازی نحوه‌ی شمردن را انجام دهیم و یا یک تابع بنویسیم که شرط شمردن را به عنوان ورودی دریافت کند و تعدادی را برگرداند.
+This code corresponds to the `Count` method in the LINQ library. This method counts items based on a specific condition. We can either implement counting for each specific condition or write a function that takes the condition as input and returns the count.
 
 
-### ترکیب توابع
+### Function Composition
+Function composition refers to the process of combining multiple simple functions to create more complex functions, just like in mathematics. The output of one function becomes the input for the next function, and in the end, we receive the output of the final function. In C#, we can compose functions in a functional programming style. 
 
-ترکیب توابع به عمل پیوند دادن چند تابع ساده، برای ایجاد توابعی پیچیده گفته می‌شود. دقیقا مانند عملی که در ریاضیات انجام می‌شود. خروجی هر تابع به عنوان ورودی تابع بعدی مورد استفاده قرار میگیرد و در آخر ما خروجی آخرین فراخوانی را به عنوان نتیجه دریافت میکنیم. ما میتوانیم در #C به روش برنامه نویسی تابعی، توابع را با یکدیگر ترکیب کنیم. به مثال زیر توجه کنید:
+Here's an example:
 
-```
+```csharp
 public static class Extensions
 {
     public static Func<T, TReturn2> Compose<T, TReturn1, TReturn2>(this Func<TReturn1, TReturn2> func1, Func<T, TReturn1> func2)
@@ -141,26 +141,24 @@ public class Program
     }
 }
 ```
+In the above example, we have three separate functions that we want to apply one after another. We could have written them nested, but that would significantly reduce readability. Instead, we used an extension method for function composition.
 
-در مثال بالا ما سه تابع جدا داریم که میخواهیم نتیجه‌ی آن‌ها را به صورت پشت سر هم داشته باشیم. ما میتوانستیم هر کدام از این توابع را به صورت تو در تو بنویسیم؛ ولی خوانایی آن به شدت کاهش خواهد یافت. بنابراین ما از یک Extension Method استفاده کردیم.
+### Chaining / Pipe-Lining and Extensions
+One important approach in functional programming is method chaining, where the output of one method is passed as input to the next method. A good example of this is the `StringBuilder` class. `StringBuilder` uses the **Fluent Builder pattern**, allowing method chaining without mutating the underlying string. We can achieve the same result with extension methods. Here’s how:
 
-### Chaining / Pipe-Lining و اکستنشن‌ها
-
-یکی از روش‌های مهم در سبک برنامه نویسی تابعی، فراخوانی متد‌ها به صورت زنجیره‌ای و پاس دادن خروجی یک متد به متد بعدی، به عنوان ورودی است. به عنوان مثال کلاس String Builder یک مثال خوب از این نوع پیاده سازی است. کلاس StringBuilder از پترن Fluent Builder استفاده می‌کند. ما می‌توانیم با اکستنشن متد هم به همین نتیجه برسیم. نکته مهم در مورد کلاس StringBuilder این است که این کلاس، شیء string را mutate نمیکند؛ به این معنا که هر متد، تغییری در object ورودی نمی‌دهد و یک خروجی جدید را بر می‌گرداند.
-
-```
+```csharp
 string str = new StringBuilder()
   .Append("Hello ")
   .Append("World ")
   .ToString()
   .TrimEnd()
   .ToUpper();
-```
-
-در این مثال  ما کلاس StringBuilder را توسط یک اکستنشن متد توسعه داده‌ایم:
-
 
 ```
+
+In this example, we extended the StringBuilder class with an extension method:
+
+```csharp
 public static class Extensions
 {
     public static StringBuilder AppendWhen(this StringBuilder sb, string value, bool predicate) => predicate ? sb.Append(value) : sb;
@@ -170,17 +168,15 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // Extends the StringBuilder class to accept a predicate
         string htmlButton = new StringBuilder().Append("<button").AppendWhen(" disabled", false).Append(">Click me</button>").ToString();
     }
 }
 ```
 
-### نوع‌های اضافی درست نکنید ، به جای آن از کلمه‌ی کلیدی yield استفاده کنید!
+### Avoid Creating Extra Types, Use yield Instead!
+Sometimes we need to return a list of items from a method. The first choice is often to create an object of type List or a more general collection, then return it as the output type:
 
-گاهی ما نیاز داریم لیستی از آیتم‌ها را به عنوان خروجی یک متد برگردانیم. اولین انتخاب معمولا ایجاد یک شیء از جنس List یا به طور کلی‌تر Collection و سپس استفاده از آن به عنوان نوع خروجی است:
-
-```
+```csharp
 public static void Main()
 {
     int[] a = { 1, 2, 3, 4, 5 };
@@ -190,7 +186,6 @@ public static void Main()
         Console.WriteLine(n);
     }
 }
-
 
 /*public static IEnumerable<int> GreaterThan(int[] arr, int gt)
 {
@@ -210,17 +205,15 @@ public static IEnumerable<int> GreaterThan(int[] arr, int gt)
     }
 }
 ```
+In the first example, we used a temporary list to hold items, but we can avoid this by using the `yield` keyword. This pattern of iteration is common in functional programming.
 
-همانطور که مشاهده میکنید در مثال اول، ما از یک لیست موقت استفاده کرد‌ه‌ایم تا آیتم‌ها را نگه دارد. اما میتوانیم از این مورد با استفاده از کلمه کلیدی yield اجتناب کنیم. این الگوی iterate بر روی آبجکت‌ها در برنامه نویسی تابعی، خیلی به چشم میخورد.
+### Declarative Programming Instead of Imperative Using LINQ
+In the previous part, we discussed imperative programming. Here’s an example of converting an imperative method to a declarative one. You can see how much shorter and more readable it becomes:
 
-### برنامه نویسی declarative به جای imperative با استفاده از Linq
-
-در قسمت قبلی به طور کلی درباره برنامه نویسی Imperative صحبت کردیم. در مثال زیر یک نمونه از تبدیل یک متد که با استایل Imperative نوشته شده به declarative را می‌بینید. شما میتوانید ببینید که چقدر کوتاه‌تر و خواناتر شده:
-
-```
+```csharp
 List<int> collection = new List<int> { 1, 2, 3, 4, 5 };
 
-// Imparative style of programming is verbose
+// Imperative style of programming is verbose
 List<int> results = new List<int>();
 
 foreach(var num in collection)
@@ -232,29 +225,22 @@ foreach(var num in collection)
 var results = collection.Where(num => num % 2 != 0);
 ```
 
-### Immutable Collection
+
+### Immutable Collections
+We've discussed the importance of immutability before. Immutable collections are collections where their members cannot be modified after creation. When an item is added or removed, a new collection is returned. You can find different types of these collections in [this link](https://docs.microsoft.com/en-us/dotnet/api/system.collections.immutable?view=netcore-2.2) While creating a new collection may seem like it adds overhead to memory usage, this is not always the case. For example, if you have `f(x) = y`, x and y are likely to share memory. They don’t need to be mutable. For more details,[ this article](https://msdn.microsoft.com/en-us/magazine/mt795189.aspx) goes into a deeper explanation of how these collections are implemented. Eric Lepert has a series of articles on immutability in #C which you can find [here](https://stackoverflow.com/a/927219/1650277).
 
 
-در مورد اهمیت immutable قبلا صحبت کردیم؛ Immutable Collection ها، کالکشن‌هایی هستند که به جز زمانیکه ایجاد می‌شنود، اعضای آن‌ها نمی‌توانند تغییر کنند. زمانیکه یک آیتم به آن اضافه یا کم شود، یک لیست جدید، برگردانده خواهد شد. شما می‌توانید انواع این کالکشن‌ها را در [این لینک](https://docs.microsoft.com/en-us/dotnet/api/system.collections.immutable?view=netcore-2.2) ببینید.  
-به نظر میرسد که ایجاد یک کالکشن جدید میتواند سربار اضافی بر روی استفاده از حافظه داشته باشد، اما همیشه الزاما به این صورت نیست. به طور مثال اگر شما f(x)=y را داشته باشید، مقادیر x و y به احتمال زیاد یکسان هستند. در این صورت متغیر x و y، حافظه را به صورت مشترک استفاده می‌کنند. به این دلیل که هیچ کدام از آن‌ها Mutable نیستند. اگر به دنبال جزییات بیشتری هستید [این مقاله](https://msdn.microsoft.com/en-us/magazine/mt795189.aspx) به صورت خیلی جزیی‌تر در مورد نحوه پیاده سازی این نوع کالکشن‌ها صحبت میکند. اریک لپرت یک سری مقاله در مورد Immutable ها در #C دارد که میتوانید آن هار [در اینجا](https://stackoverflow.com/a/927219/1650277) پیدا کنید.  
+### Thread-Safe Collections
 
+If we are writing a concurrent or async program, one of the problems we might encounter is a race condition. This occurs when two threads simultaneously attempt to access or modify the same resource. To solve this issue, we can define the objects we work with as immutable. 
 
+Starting from .NET Framework version 4, [Concurrent Collections](https://docs.microsoft.com/en-us/dotnet/standard/collections/thread-safe/) were introduced. Some of the commonly used types are listed below:
 
-  
-### Thread-Safe Collections 
-  
-
-اگر ما در حال نوشتن یک برنامه‌ی Concurrent / async باشیم، یکی از مشکلاتی که ممکن است گریبانگیر ما شود، race condition است. این حالت زمانی اتفاق می‌افتد که دو ترد به صورت همزمان تلاش میکنند از یک resource استفاده کنند و یا آن را تغییر دهند. برای حل این مشکل میتوانیم آبجکت‌هایی را که با آن‌ها سر و کار داریم، به صورت immutable تعریف کنیم. از دات نت فریمورک نسخه 4 به بعد  [Concurrent Collection](https://docs.microsoft.com/en-us/dotnet/standard/collections/thread-safe/)‌ها معرفی شدند. برخی از نوع‌های کاربردی آن‌ها را در لیست پایین می‌بینیم:
-  
-| نوع | توضیح |
+| Type | Description |
 |---|---|
-| [ConcurrentDictionary](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2) | پیاده سازی thread safe از دیکشنری key-value |
-|  [ConcurrentQueue](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentqueue-1)    |   پیاده سازی thread safe از صف (اولین ورودی ، اولین خروجی) |
-|  [ConcurrentStack](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentstack-1)  |   پیاده سازی thread safe از پشته (آخرین ورودی ، اولین خروجی) |
-|  [ConcurrentBag](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1)    |   پیاده سازی thread safe از لیست نامرتب |
+| [ConcurrentDictionary](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentdictionary-2) | Thread-safe implementation of a key-value dictionary |
+| [ConcurrentQueue](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentqueue-1) | Thread-safe implementation of a queue (first in, first out) |
+| [ConcurrentStack](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentstack-1) | Thread-safe implementation of a stack (last in, first out) |
+| [ConcurrentBag](https://docs.microsoft.com/en-us/dotnet/api/system.collections.concurrent.concurrentbag-1) | Thread-safe implementation of an unordered list |
 
-  
-  
-این کلاس‌ها در واقع همه مشکلات ما را حل نخواهند کرد؛ اما بهتر است که در ذهن خود داشته باشیم که بتوانیم به موقع و در جای درست از آن‌ها استفاده کنیم.  
-  
-در این قسمت از مقاله سعی شد با روش‌های خیلی ساده، با مفاهیم اولیه برنامه نویسی تابعی درگیر شویم. در ادامه مثال‌های بیشتری از الگوهایی که میتوانند به ما کمک کنند، خواهیم داشت.
+These classes won't solve all our problems, but it’s good to be aware of them so we can use them appropriately and in the right context.

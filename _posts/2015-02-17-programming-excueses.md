@@ -1,13 +1,11 @@
 ---
-layout: post
-title: Programming excuses! 
 
-categories:
-  - Life-Style
-tags:
-  - programming
-  - excuese
-  - Life-Style
+title : Programming excuses! 
+author: Saeed Salehi
+date: 2015-02-17 16:00:00 +0800
+categories: [Fun]
+tags: [Fun]
+
 ---
 
 Hey 

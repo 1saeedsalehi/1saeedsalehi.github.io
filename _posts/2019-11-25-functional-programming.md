@@ -1,133 +1,120 @@
 ---
-layout: post
+
+title: git for absent-mindeds
+author: Saeed Salehi
+date: 2019-11-25T14:09:00 +0800
+categories: [Software Engineering]
+tags: [Functional Programming,C#.NET,Functional,Programming Paradigms]
 title:   Functional Programming - Part 1 
-categories:
-  - Software-Engineering
-tags:
-  - functional-programming 
-  - C#
-  - c-sharp
-  - dotnet
-  - functional
-  - paradigm
+image:
+  path: /assets/img/paradigms.png
+  alt: The Evolution of Programming Paradigms
 
-last_modified_at: 2019-11-25T00:00:00-05:00
 ---
-![Programming Paradigms](/assets/images/paradigms.png "سیر تکاملی الگوهای برنامه نویسی")
-این قسمت از مقاله به ایده اصلی برنامه نویسی تابعی و دلیل وجودی آن خواهد پرداخت. هیچ شکی نیست که بزرگترین چالش در توسعه نرم افزار‌های بزرگ، پیچیدگی آن است. تغییرات همیش اجتناب ناپذیر هستند. به خصوص زمانی که صحبت از پیاده سازی امکان جدیدی باشد، پیچیدگی اضافه خواهد شد. در نتیجه منجر به سخت شدن فهمیدن کد می‌شود، زمان توسعه را بالاتر می‌برد و باگ‌های ناخواسته را به وجود خواهد آورد. همچنین تغییر هر چیزی در دنیای نرم افزار بدون به وجود آوردن رفتار‌های ناخواسته و یا اثرات جانبی، تقریبا غیر ممکن است. در نهایت همه این موارد می‌توانند سرعت توسعه را پایین برده و حتی باعث شکست پروژه‌های نرم افزاری شوند. سبک‌های کد نویسی دستوری (Imperative) مانند برنامه نویسی شیء گرا، میتوانند به کاهش این پیچیدگی‌ها تا حد خوبی کمک کنند. البته در صورتیکه به طور صحیحی پیاده شوند. در واقع با ایجاد Abstraction در این مدل برنامه نویسی، پیچیدگی‌ها را مخفی میکنیم.
 
 
+This article introduces the concept of functional programming and why it's useful. One of the biggest challenges in software development is complexity. Changes are inevitable, especially when adding new features. These changes can make the code harder to understand, increase development time, and introduce bugs. Moreover, it's almost impossible to change something in a program without causing side effects or unwanted behavior. All of this can slow down development and even cause project failure. 
 
+Imperative programming styles, like object-oriented programming, can help manage complexity—if done right. Abstraction in OOP hides complexity, but there are still challenges when dealing with threads and performance.
 
-برنامه نویسی شیء گرا در خون برنامه نویس‌های سی شارپ جاری است؛ ما معمولا ساعت‌ها درباره اینکه چگونه میتوانیم با استفاده از ارث بری و ترتیب پیاده کلاس‌ها، یک هدف خاص برسیم، بر روی کپسوله سازی تمرکز میکنیم و انتزاع (Abstraction) و چند ریختی ( Polymorphism ) را برای تغییر وضعیت برنامه استفاده میکنیم. در این مدل همیشه احتمال این وجود دارد که چند ترد به صورت همزمان به یک ناحیه از حافظه دسترسی داشته باشند و تغییری در آن به وجود بیاورند و باعث به وجود آمدن شرایط Race Condition شوند. البته همگی به خوبی میدانیم که میتوانیم یک برنامه‌ی کاملا Thread-Safe هم داشته باشیم که به خوبی مباحث همزمانی و همروندی را مدیریت کند؛ اما یک مساله اساسی در مورد کارآیی باقی می‌ماند. گرچه Parallelism به ما کمک میکند که کارآیی برنامه خود را افزایش دهیم، اما refactor کردن کد‌های موجود، به حالت موازی، کاری سخت و پردردسر خواهد بود.
+### The Problem
 
-### راهکار چیست؟
+C# developers are familiar with object-oriented programming (OOP). We often focus on how to use inheritance, encapsulation, and polymorphism to design our code. However, in OOP, multiple threads might access the same memory area, causing race conditions. While we can write thread-safe code, improving performance can be challenging, especially when refactoring existing code for parallel execution.
 
-برنامه نویسی تابعی، یک الگوی برنامه نویسی است که از یک ایده قدیمی (قبل از اولین کامپیوتر‌ها !) برگرفته شده‌است؛ زمانیکه دو ریاضیدان، یک تئوری به نام  lambda calculus را معرفی کردند، که یک چارچوب محاسباتی می‌باشد؛ عملیاتی ریاضی را انجام می‌دهد و نتیجه را محاسبه میکند، بدون اینکه تغییری را در وضعیت داده‌ها و وضعیت، به وجود بیاورد. با این کار، فهمیدن کد‌ها آسانتر خواهد بود و اثرات جانبی را کمتر خواهد کرد، همچین نوشتن تست‌ها ساده‌تر خواهند شد.
+### The Solution: Functional Programming
 
-### زبان‌های تابعی
+Functional programming (FP) is a paradigm that dates back to before computers, originating from a mathematical theory called *lambda calculus*. It allows functions to calculate results without changing the program’s state, which makes the code simpler to understand, reduces side effects, and makes testing easier.
 
-جالب است اگر زبان‌های برنامه نویسی را که از برنامه نویسی تابعی پشتیبانی میکنند، بررسی کنیم، مانند Lisp , Clojure, Erlang, Haskel، هر کدام از این زبان‌ها جنبه‌های مختلفی از برنامه نویسی تابعی را پوشش میدهند. #F یک عضو از خانواده ML می‌باشد که بر روی دات نت فریمورک در سال 2002 پیاده سازی شده. ولی جالب است بدانید بیشتر زبان‌های همه کاره مانند #C به اندازه کافی انعطاف پذیر هستند تا بتوان الگوهای مختلفی را توسط آن‌ها پیاده کرد. از آنجایی که اکثرا ما از #C برای توسعه نرم افزارهایمان استفاده میکنیم، ترکیب ایده‌های برنامه نویسی تابعی میتواند راهکار جالبی برای حل مشکلات ما باشد.
+### Functional Programming Languages
 
-### مفاهیم پایه ای
+Languages like Lisp, Clojure, Erlang, and Haskell support functional programming. F# is a language in the .NET ecosystem that also embraces FP principles. Interestingly, general-purpose languages like C# are flexible enough to support various paradigms, including functional programming. Since many of us use C# for development, integrating functional programming concepts can help solve some of our problems.
 
-قبلا درباره توابع ریاضی صحت کردیم. در زبان‌های برنامه نویسی هم ایده همان است؛ ورودی‌های مشخص و خروجی مورد انتظار، بدون تغییری در حالت برنامه. به این مفاهیم شفافیت و صداقت توابع میگوییم که در ادامه با آن بیشتر آشنا میشویم. به این نکته توجه داشته باشید که منظور از تابع در #C فقط Method نیست؛ Func , Action , Delegate هم نوعی تابع هستند.
+### Key Concepts
 
+In functional programming, a function is similar to a mathematical function: it takes specific inputs and returns the expected output without changing the state. This concept is called *referential transparency* and *function honesty*. 
 
-### شفافیت توابع (Referential Transparency)
+Note that in C#, a function is not just a method; `Func`, `Action`, and `Delegate` are also types of functions.
 
-به طور ساده با نگاه کردن به ورودی‌های تابع و نام آن‌ها باید بتوانیم کاری را که انجام میدهد، حدس بزنیم. یعنی یک تابع باید بر اساس ورودی‌های آن کاری را انجام دهد و نباید یک پارامتر Global آن را تحت تاثیر قرار دهد. پارامتر‌های Global میتوانند یک Property در سطح یک کلاس باشند، یا یک شیء که وضعیت آن تحت کنترل تابع نیست؛ مانند شی DateTime. به مثال زیر توجه کنید:
+### Referential Transparency
 
-```
+Referential transparency means that by looking at a function’s inputs and its name, you should be able to predict what it does. A function should only depend on its inputs and should not be affected by global state. For example:
+
+```csharp
 public int CalculateElapsedDays(DateTime from)
 {
-   DateTime now = DateTime.Now;
-   return (now - from).Days;
+    DateTime now = DateTime.Now;
+    return (now - from).Days;
 }
 ```
 
-این تابع شفاف نیست. چرا؟ چون امروز، یک خروجی را میدهد و فردا یک خروجی دیگر را! به بیان دیگر وابسته به یک شیء سراسری DateTime.Now است.
-آیا میتوانید این تابع را شفاف کنیم؟ بله!
-چطور؟ به سادگی! با تغییر پارامتر‌های ورودی:
+This function is **not referentially transparent** because it depends on the global `DateTime.Now`, which changes over time. To fix it, pass `DateTime.Now` as an argument:
 
-```
+```csharp
 public static int CalculateElapsedDays(DateTime from, DateTime now) => (now - from).Days;
 ```
 
-در مثال بالا، ما وابستگی به یک شیء سراسری را از بین بردیم.
+Now the function is referentially transparent because it no longer depends on a global variable.
 
 
-### صداقت توابع (Function Honesty)
+### Function Honesty
+A function should handle all possible inputs and outputs correctly. For example:
 
-صداقت یک تابع یعنی یک تابع باید همه اطلاعات مربوط به ورودی‌ها و خروجی‌ها را پوشش دهد. به این مثال دقت کنید:
+```csharp
 
-```
 public int Divide(int numerator, int denominator)
 {
-   return numerator / denominator;
+    return numerator / denominator;
 }
 ```
 
-آیا این تابع شفاف است؟ بله.
-آیا این همه مواردی را که از آن انتظار داریم پوشش میدهد؟ احتمالا خیر!
+Is this function transparent? Yes, but it doesn't cover all cases. If the denominator is zero, it will throw an error:
 
-اگر دو عدد صحیح را به این تابع بفرستیم، احتمالا مشکلی پیش نخواهد آمد. اما همانطور که حدس میزنید اگر پارامتر دوم 0 باشد چه اتفاقی خواهد افتاد؟
-
-```
-var result = Divide(1,0);
-
+```csharp
+var result = Divide(1, 0);  // Divide by zero error
+To solve this, we can prevent division by zero by using a custom type:
 ```
 
-قطعا خطای Divide By Zero را خواهیم گرفت. امضای این تابع به ما اطلاعاتی درباره خطاهای احتمالی نمی‌دهد.
-
-چگونه مشکل را حل کنیم؟ تایپ ورودی را به شکل زیر تغییر دهیم:
-
-```
+```csharp
 public static int Divide(int numerator, NonZeroInt denominator)
 {
-   return numerator / denominator.Value;
+    return numerator / denominator.Value;
 }
 ```
-
-NonZeroInt یک نوع ورودی اختصاصی است که خودمان طراحی کرده‌ایم که تمام مقادیر را به جز صفر، قبول میکند.
-
-به طور کلی تمرین زیادی لازم داریم تا بتوانیم با این مفاهیم به طور عمیق آشنا شویم. در این مقاله قصد دارم جنبه‌های ابتدایی برنامه نویسی تابعی مانند  Functions as first class values ، High Order Functions و Pure Functions را مورد بررسی قرار دهم.
+Here, `NonZeroInt` is a custom type that only accepts values other than zero.
 
 
-### Functions as first-class values
+### Functions as First-Class Values
 
-ترجمه فارسی این کلمه ما را از معنی اصلی آن خیلی دور می‌کند؛ احتمالا یک ترجمه ساد‌ه‌ی آم میتواند «تابع، ارزش اولیه کلاس» باشد!
-وقتی توابع first-class values باشند، یعنی می‌توانند به عنوان ورودی سایر توابع استفاده شوند، می‌توانند به یک متغیر انتساب داده شوند، دقیقا مثل یک مقدار. برای مثال:
+In functional programming, functions are considered *first-class values*. This means functions can be assigned to variables and passed as arguments to other functions. For example:
 
-```
-Func<int, bool> isMod2 = x => x % 2 == 0;
+```csharp
+Func<int, bool> isEven = x => x % 2 == 0;
 var list = Enumerable.Range(1, 10);
-var evenNumbers = list.Where(isMod2);
+var evenNumbers = list.Where(isEven);
 ```
 
-در این مثال، تابع، First-class value می‌باشد؛ چون شما می‌توانید آن را به یک متغیر نسبت دهید و به عنوان ورودی به تابع بعدی بدهید. در مدل برنامه نویسی تابعی، تلقی شدن توابع به عنوان مقدار، ضروری است. چون به ما امکان تعریف توابع High-Order را میدهد.
+In this case, `isEven` is a function assigned to a variable and passed to Where. This ability is crucial for using higher-order functions.
 
-### High-Order Functions (HOF)
+### Higher-Order Functions (HOF)
 
-توابع مرتبه بالا! یک یا چند تابع را به عنوان ورودی می‌گیرند و یک تابع را به عنوان نتیجه بر میگرداند. در مثال بالا Extension Method ، Where یک تابع High-Order می‌باشد.
-پیاده سازی Where احتمالا به شکل زیر می‌باشد:
+A higher-order function is a function that accepts other functions as arguments or returns a function as a result. The Where method in LINQ is a good example:
 
-```
+```csharp
 public static IEnumerable<T> Where<T>(this IEnumerable<T> ts, Func<T, bool> predicate)
 {
-   foreach (T t in ts)
-      if (predicate(t))
-         yield return t;
+    foreach (T t in ts)
+        if (predicate(t))
+            yield return t;
 }
 ```
+In this example, `Where` takes a function (`predicate`) and applies it to each item in the list. The function passed to `Where` is a **higher-order function**.
 
-1. وظیفه چرخیدن روی آیتم‌های لیست، مربوط به Where می‌باشد.
-2. ملاک تشخیص اینکه چه آیتم‌هایی در لیست باید وجود داشته باشند، به عهده متدی می‌باشد که آن را فراخوانی میکند.
-
-در این مثال، تابع Where، تابع ورودی را به ازای هر المان، در لیست فراخوانی میکند. این تابع می‌تواند طوری طراحی شود که تابع ورودی را به صورت شرطی اعمال کند. آزمایش این حالت به عهده شما می‌باشد. اما به صورت کلی انتظار می‌رود که قدرت توابع High-Order را درک کرده باشید.
 
 ### Pure Functions
 
-توابع خالص در واقع توابع ریاضی هستند که دو مفهوم ابتدایی که قبلا درباره آن‌ها صحبت کردیم را دنبال می‌کنند؛ شفافیت و صداقت توابع. توابع خالص نباید هیچوقت اثر جانبی (side effect) ای داشته باشند. این یعنی نباید یک global state را تغییر دهند و یا از آن‌ها به عنوان پارامتر ورودی استفاده کنند. توابع خالص به راحتی قابل تست شدن هستند. چون به ازای یک ورودی، یک خروجی ثابت را بر میگردانند. ترتیب محاسبات اهمیتی ندارد! این‌ها بازیگران اصلی یک برنامه تابعی می‌باشد که می‌توانند برای اجرای موازی، محاسبه متاخر ( Lazy Evaluation ) و کش کردن ( memoization ) استفاده شوند.
+Pure functions are essentially *mathematical functions* that follow the two concepts we’ve already discussed: 
+**referential transparency ** and **function honesty**  
 
-در ادامه این سری مقالات، به پیاده سازی‌ها و الگوهای رایج برنامه نویسی تابعی با #C بیشتر خواهیم پرداخت.
+A pure function should never have **side effects**. This means it shouldn't modify __global state__ or use __global variables__ as inputs. Pure functions are easy to test because for a given input, they always return the same output. The order of execution doesn’t matter! These are the core components of a functional program and can be used for parallel execution, lazy evaluation, and memoization.
+
+In the next articles of this series, we will explore functional programming implementations and common patterns in C#.

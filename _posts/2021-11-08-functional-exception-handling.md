@@ -1,21 +1,15 @@
 ---
-layout: post
-title: handling exceptions in a functional way!
-categories:
-  - Software-Engineering
-tags:
-  - functional-programming 
-  - exception
-  - c#
-  - null reference
-  - exception
+title: Getting started with Dapr 
+author: Saeed Salehi
+date: 2021-11-08T00:00 +0800
+categories: [Software Engineering]
+tags: [Functional Programming,C#.NET,Functional,Programming Paradigms,exception,c#,null reference,exception]
 
-last_modified_at: 2021-11-08T12:00:00-05:00
 ---
 
 Please see the code below:
 
-```
+```csharp
 Customer customer = _repository.GetById(id);
 Console.WriteLine(customer.Name);
 ```
@@ -27,7 +21,7 @@ The disaster happens when we may not notice this issue until we test the softwar
 
 The faster we understand, the less time it takes to solve it. Probably the best solution is for the compiler to give us an error!
 
-```
+```csharp
 Customer! customer = _repository.GetById(id);
 Console.WriteLine(customer.Name);
 ```
@@ -45,7 +39,7 @@ For this, we need a monad in this example we call it MayBe.
 The code in its simplest form can be like this:
 
 
-```
+```csharp
 public struct Maybe<T>
 {
     private readonlyT _value;
@@ -85,7 +79,7 @@ As you can see, we used the AllowNull attribute in the input, which allows us to
 
 If we want to rewrite the code above, we can do it like this.
 
-```
+```csharp
 Maybe<Customer> customer = _repository.GetById(id);
 ```
 From now on, we can understand by looking at this code that this method may return null

@@ -1,122 +1,88 @@
 ---
-layout: post
-title:  Getting started with Dapr 
-categories:
-  - Software-Engineering
-tags:
-  - dapr
-  - microservices
-  - miniservices
-  - sidecar
-  - software-architecture
-  - software
-  - developer
-  - مایکروسرویس
-  - میکروسرویس
-  -
-
-last_modified_at: 2021-05-05T18:00:00-05:00
+title: Getting started with Dapr 
+author: Saeed Salehi
+date: 2020-05-05T00:00 +0800
+categories: [Software Engineering]
+tags: [dapr,microservices,miniservices,sidecar,software-architecture]
 ---
+If you're involved in developing applications with a microservices architecture, you've likely heard of Dapr.
 
-اگه شما هم درگیر توسعه اپلیکیشن ها با معماری مایکروسرویس باشید این روز ها خیلی اسم Dapr رو بشنوید
+In simple terms, Dapr aims to simplify microservices development by focusing on core application logic, keeping the code clean, and abstracting away infrastructural concerns. Dapr introduces itself as a runtime for running applications.
 
-اگه بخوایم خیلی ساده به این قضیه نگاه کنیم Dapr سعی کرده توسعه اپلیکیشن های مایکروسرویسی رو خیلی راحت تر کنه
+The initial release of this exciting product was on February 17, 2021, and it's ready for production use.
 
-و این کار رو با تمرکز روی منطق اصلی برنامه و ساده نگه داشتن کد و دور کردن کد از مسائل زیر ساختی هست
-در واقع Dapr همونجور که خودش رو معرفی میکنه یه runtime هست برای اجرای برنامه ها
+[Introduction](https://blog.dapr.io/posts/2021/02/17/announcing-dapr-v1.0/)
 
+### Prerequisites
 
+- [Install Dapr CLI](https://docs.dapr.io/getting-started/install-dapr-cli/)
+- [Install .NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
 
-اولین ریلیز این محصول هیجان انگیز 17 فوریه 2021 بوده و اماده استفاده توی پروداکشن هست 
+### Getting Started
 
-[معرفی](https://blog.dapr.io/posts/2021/02/17/announcing-dapr-v1.0/)
+Let's create a simple ASP.NET Core project:
 
-### پیشنیاز ها
-
- - [نصب Cli Dapr](https://docs.dapr.io/getting-started/install-dapr-cli/)
- 
- - [نصب .Net 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
- 
-### شروع
-
-برای یک پروژه ساده Asp.net Core ایجاد میکنیم
-```
+```bash
 mkdir WeatherForecastService
 cd WeatherForecastService
 dotnet new webapi
 dotnet run
-``` 
-
-همون جوری که خودتون بهتر میدونید این یه پروژه ساده asp .net core درست میکنه
-
-معمولا به صورت پیشفرض توی تملیت این پروژه یه کنترلر پیشفرضی وجود داره که دیتای آب و هوا رو مثلا قراره برگردونه
-
-
-
-### اجرای Api با استفاده از Dapr
-
-Dapr از الگوی [sidecar](https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar) داره استفاده میکنه
-
-dapr میتونه api ما رو اجرا کنه و Api ما رو به از طریق dapr به بیرون expose کنه
-
-دستور زیر رو روی مسیر جاری پروژه تون اجرا کنید
-
 ```
+
+As you know, this creates a basic ASP.NET Core project. The default template usually includes a controller that returns weather data.
+
+### Running the API with Dapr
+Dapr uses the [sidecar pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar). Dapr can run our API and expose it externally.
+
+Run the following command in your project directory:
+```bash
 dapr run --app-id weatherforecastservice --dapr-http-port 3500 --app-port 5001 --app-ssl -- dotnet run
 ```
 
-بیاین بخش های مختلف این دستور رو با هم دیگه مرور کنیم
+Let's break down this command:
 
- - app-id یه شناسه برای اپلیکیشن/سرویس تون که بشه با این شناسه پیداش کرد
- - dapr-http-port پورتی که sidecar dapr به اون گوش میکنه
- - app-port پورتی که اپلیکیشن/سرویس ما روی اون گوش میکنه
- - app-ssl مشخص میکنه که درخواست هایی که سرویس میده ssl باشه یا نه
- - dotnet run روشی که باهاش پروژه رو اجرا میکنید
-	
-### مزایای استفاده از Dapr
+- `app-id`: An identifier for your application/service, used for discovery.
+- `dapr-http-port`: The port that the Dapr sidecar listens on.
+- `app-port`: The port that your application/service listens on.
+- `app-ssl`: Specifies whether requests to the service should use SSL.
+- `dotnet run`: The command to run your project.
 
-قبل از این که پروژه رو روی Dapr اجرا کنید میتونید با ادرس
-[https://localhost:5001/weatherforecast](https://localhost:5001/weatherforecast)
-اما وقتی با استفاده از dapr پروژه رو اجرا میکنید علاوه بر روش بالا
 
-میتونید متد مورد نظرتون رو با استفاده از فراخوانی اون از طریق sidecar اجرا کنید
-[http://localhost:3500/v1.0/invoke/weatherforecastservice/method/weatherforecast](http://localhost:3500/v1.0/invoke/weatherforecastservice/method/weatherforecast)
 
-![dapr](/assets/images/dapr/getting-started.jpg)
+### Advantages of Using Dapr
+Before running the project with Dapr, you can access it at [https://localhost:5001/weatherforecast](https://localhost:5001/weatherforecast). However, when running with Dapr, in addition to the above, you can invoke the method through the Dapr sidecar:
 
-شاید تو نگاه اول این خیلی ساده به نظر برسه
+http://localhost:3500/v1.0/invoke/weatherforecastservice/method/weatherforecast
 
-اما نکته خیلی مهم درباره این روش اینه اهمیتی نداره سرویسی که پشت dapr داره اجرا میشه روی چه بستری هست
-به طور مثال اگه روی gRPC هم باشه ما میتونیم اونو خیلی راحت با استفاده از Api هایی که Dapr به ما میده میتونیم فراخوانی کنیم
 
-در واقع یه روش استانداردی برای فراخوانی متد ها بین سرویس های مختلف میشه داشته باشیم که به صورت زیره
+![dapr](/assets/img/dapr/getting-started.jpg)
+
+
+This might seem simple at first glance. However, the crucial point is that it doesn't matter what platform the service behind Dapr is running on. For example, even if it's running on `gRPC`, we can easily invoke it using Dapr's APIs.
+
+This provides a standard way to invoke methods between different services:
 
 ```
 http://localhost:<dapr-http-port>/v1.0/invoke/<app-id>/method/<method-name>
 ```
 
-نکته مهم اینه که این روش فارغ از زبان و تکنولوژی هست و شما به همین روش میتونید به صورت مستقیم با استفاده از این Api یک سرویس که با زبان دیگه ای توسعه داده شده رو فراخوانی کنید 
-ولی این همه ماجرا نیست
+Importantly, this method is language and technology **agnostic**. You can directly invoke a service developed in another language using this API.
 
-با استفاده از این روش استاندارد برای فراخوانی سرویس ها ما میتونیم به چیز های بزرگتری توی توسعه اپلیکیشن های مایکروسرویسی برسیم
-خیلی از این ها به صورت توکار توی Dapr پیاده شدن 
+But that's not all. This standard method for invoking services enables us to achieve much more in microservices development. Many of these features are built into Dapr:
 
- - Service discovery
- - Distributed tracing
- - Metrics
- - Error handling
- - Encryption 
- 
- و نکته خیلی جالب درباره Dapr اینه که شما نیاز نیست وقتی دارین کد مینویسین درباره همه این مسائل فک کنید
- و به جاش میتونید تمرکزتون رو بزارین رو معماری درست و پیاده سازی درست و با کیفیت منطق برنامه
- 
- لایبرری هایی برای راحت تر کردن استفاده از امکانات dapr وجود داره که با یه جستجوی ساده توی nuget میتونید اونا رو پیدا کنید
- 
-### خلاصه
- 
- توی این متن به صورت خیلی خلاصه با Dapr آشنا شدیم میتونید روی لینک [dapr.io](https://dapr.io) اطلاعات بیشتری پیدا کنید
- 
- احتمالا در آینده چیز های بیشتری از این محصول جذاب مینویسم
- 
- ممنون میشم شما هم اگه نظری داشتین با من به اشتراک بزارید
- 
+- Service discovery
+- Distributed tracing
+- Metrics
+- Error handling
+- Encryption
+
+A significant advantage of Dapr is that you don't need to think about all these issues while writing code. Instead, you can focus on proper architecture and implementing high-quality application logic.
+
+Libraries are available to simplify using Dapr's features, which you can easily find on NuGet.
+
+
+
+Summary
+This post provided a brief introduction to Dapr. You can find more information at [dapr.io(https://dapr.io/)].
+
+I'd appreciate it if you shared your thoughts.
