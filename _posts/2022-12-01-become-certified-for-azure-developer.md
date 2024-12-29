@@ -24,9 +24,9 @@ But let me tell you, passing the AZ 204 exam was no walk in the park. It's a tou
 
 But don't worry, I've got your back. Preparation is key, and I have a list of resources to help you study and ace the exam. Plus, if you're not quite ready for the AZ 204 exam, you can start with the AZ 900 Azure Fundamentals exam. It doesn't require any programming skills, but you'll need to know the basics of cloud computing and Microsoft Azure platform.
 
-<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="a91d3fe5-eaae-414c-be5f-35a67a2622ea" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="a91d3fe5-eaae-414c-be5f-35a67a2622ea" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
 
-<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="2f26a69c-fdd9-4d48-b2fc-403d86816cf9" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="2f26a69c-fdd9-4d48-b2fc-403d86816cf9" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
 
 
 If you're getting ready for the AZ 900 Azure Fundamentals exam, I highly recommend checking out [the Microsoft Learn Azure Fundamentals Path](https://learn.microsoft.com/en-us/certifications/exams/az-900/) and [AZ-900 cheatsheet](https://marczak.io/az-900/episode-01/cheat-sheet/) These resources will help you get a good grasp of the cloud computing basics and working in the Microsoft Azure platform.
