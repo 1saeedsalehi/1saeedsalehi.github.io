@@ -16,7 +16,7 @@ timezone: Europe/Amsterdam
 
 title: Saeed Salehi # the main title
 
-tagline: Just a dev! # it will display as the subtitle
+tagline: Just a dev # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Sharing tips and insights on software development mostly .NET Core and ASP.NET Core.
@@ -95,7 +95,7 @@ theme_mode:  dark # [light | dark]
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-cdn: 
+cdn: 'https://1saeed.dev'
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "/assets/img/avatar.jpeg"

@@ -112,7 +112,7 @@ prepare() {
 ## Build a Gem package
 build_gem() {
   # Remove unnecessary theme settings
-  sed -i -E "s/(^timezone:).*/\1/;s/(^cdn:).*/\1/;s/(^avatar:).*/\1/" $CONFIG
+sed -i -E 's/(^timezone:).*/\\1/;s/(^cdn:).*/\\1/;s/(^avatar:).*/\\1/' $CONFIG
   rm -f ./*.gem
 
   npm run build
