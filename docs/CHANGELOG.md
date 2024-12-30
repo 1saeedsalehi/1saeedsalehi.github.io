@@ -1,21 +1,5 @@
 # Changelog
 
-## [1.0.1](https://github.com/1saeedsalehi/1saeedsalehi.github.io/compare/v1.0.0...v1.0.1) (2024-12-30)
-
-### Bug Fixes
-
-* release issue ([7998cd4](https://github.com/1saeedsalehi/1saeedsalehi.github.io/commit/7998cd4b4c1623be4359ef1e83871deab7489170))
-* remove lock ([e3ccad0](https://github.com/1saeedsalehi/1saeedsalehi.github.io/commit/e3ccad08aa1e3e5b94701c771a4ed29e6fb82134))
-
-## 1.0.0 (2024-12-29)
-
-### Bug Fixes
-
-* add git submodule ([9183de8](https://github.com/1saeedsalehi/1saeedsalehi.github.io/commit/9183de891d459b8a4ce74e000f56d90c4e73577e))
-* broken links ([4c00206](https://github.com/1saeedsalehi/1saeedsalehi.github.io/commit/4c00206c8e4ee87d2d22a1699b837355fa180a56))
-* broken links ([c40937a](https://github.com/1saeedsalehi/1saeedsalehi.github.io/commit/c40937afb628e21a9ab1fba350ecb99ddfb3c21e))
-* update ci ([f08cea0](https://github.com/1saeedsalehi/1saeedsalehi.github.io/commit/f08cea0501fac7c24ceb4fd5afe72b171deb68d2))
-
 ## [7.2.4](https://github.com/cotes2020/jekyll-theme-chirpy/compare/v7.2.3...v7.2.4) (2024-12-21)
 
 ### Bug Fixes
