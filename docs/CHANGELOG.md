@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/1saeedsalehi/1saeedsalehi.github.io/compare/v1.0.0...v1.0.1) (2024-12-30)
+
+### Bug Fixes
+
+* release issue ([7998cd4](https://github.com/1saeedsalehi/1saeedsalehi.github.io/commit/7998cd4b4c1623be4359ef1e83871deab7489170))
+* remove lock ([e3ccad0](https://github.com/1saeedsalehi/1saeedsalehi.github.io/commit/e3ccad08aa1e3e5b94701c771a4ed29e6fb82134))
+
 ## 1.0.0 (2024-12-29)
 
 ### Bug Fixes
