@@ -4,10 +4,10 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-This is Saeed, I believe that sharing what we build, how we build it, and the mistakes we made along the way improves the experience and saves time for the next thousands of people doing similar. For the same reasons 🤘
+Hi, I’m Saeed! I believe sharing what we build, how we build it, and the mistakes we make helps others and saves time for everyone working on similar projects. That’s why I’m here! 🤘
 
-🧑‍💻 Ever since I first laid my hands on my first computer (since Y2K 🪲) I'd loved computers and all the wonderful things you can make them.
+🧑‍💻 I’ve loved computers since the Y2K days 🪲, and I’m still amazed by what we can create with them.
 
-💬 you can talk with me about software engineering and everything else!
+💬 Feel free to chat with me about software engineering or anything else!
 
 [![MentorCruise](https://cdn.mentorcruise.com/img/banner/sky-mentoring-badge.svg)](https://mentorcruise.com/mentor/saeedsalehi/)
