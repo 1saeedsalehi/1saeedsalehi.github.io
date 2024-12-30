@@ -20,5 +20,6 @@ here I find some funny excuses that **every programmer** used at least once :)
 - It's just some unlucky coincidence
 - I thought I finished that
 
-  <!-- markdownlint-disable-next-line -->
+<div data-proofer-ignore>
 [Want to see more?](http://programmingexcuses.com)
+</div>
