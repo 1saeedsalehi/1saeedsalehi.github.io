@@ -12,7 +12,12 @@ function hasDescription(markdown) {
 module.exports = async ({ github, context, core }) => {
   const pr = context.payload.pull_request;
   const body = pr.body === null ? '' : pr.body;
-  const markdown = body.replace(/<!--[\s\S]*?-->/g, '');
+  let previous;
+  let markdown = body;
+  do {
+    previous = markdown;
+    markdown = markdown.replace(/<!--[\s\S]*?-->/g, '');
+  } while (markdown !== previous);
   const action = context.payload.action;
 
   const isValid =
