@@ -143,9 +143,17 @@ header {
 
   .post-tag {
     &:hover {
-      @extend %link-hover;
       @extend %tag-hover;
-      @extend %no-bottom-border;
+    }
+  }
+}
+
+.post-edit {
+  line-height: 1.2rem;
+
+  > a {
+    &:hover {
+      @extend %link-hover;
     }
   }
 }
