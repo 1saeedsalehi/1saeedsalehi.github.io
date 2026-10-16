@@ -4,6 +4,9 @@ author: saeed
 date: 2026-01-25 10:00:00 +0100
 categories: [Career]
 tags: [Mentoring, MentorCruise, Career Growth, Interview Preparation, C#.NET]
+image:
+  path: /assets/img/mentoring/top-mentor.png
+  alt: The Mentor I Wish I’d Had, two years of mentoring on MentorCruise
 ---
 
 It was an autumn evening in 2023. I had a call in ten minutes with a developer I’d never met, and I was nervous.
@@ -37,7 +40,7 @@ I’ve shipped big projects and worked on complex systems, but reading that mean
 Looking back, I’m glad I took that first call, nerves and all. I’ve learned a lot from the people I’ve mentored, and I’m looking forward to many more conversations.
 
 <div style="display:flex;justify-content:center;margin:2rem 0;">
-  <iframe src="https://mentorcruise.com/mentor/saeedsalehi/embed/?mode=dark" width="350" height="420" frameborder="0" style="max-width:100%;" title="Saeed Salehi on MentorCruise"></iframe>
+  <iframe src="https://mentorcruise.com/mentor/saeedsalehi/embed/?mode=modern" width="350" height="420" frameborder="0" style="max-width:100%;" title="Saeed Salehi on MentorCruise"></iframe>
 </div>
 
 If you’re a software engineer who’s feeling stuck, preparing for an interview, or figuring out your next career move, let’s talk.

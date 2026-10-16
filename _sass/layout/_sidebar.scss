@@ -177,6 +177,15 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     }
   }
 
+  .sidebar-badge {
+    padding: 0 1rem 1rem;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
   .sidebar-bottom {
     padding-left: 2rem;
     padding-right: 1rem;
