@@ -178,12 +178,16 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
   }
 
   .sidebar-badge {
-    padding: 0 1rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
     margin-bottom: 1.25rem;
+
+    @include bp.xxxl {
+      padding-left: 2.75rem;
+    }
 
     img {
       display: block;
-      margin: 0 auto;
       max-width: 100%;
       height: auto;
       border-radius: 6px;
