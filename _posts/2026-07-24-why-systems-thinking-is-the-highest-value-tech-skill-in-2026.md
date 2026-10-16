@@ -7,6 +7,7 @@ tags: [Systems Thinking, Mentoring, MentorCruise, Career Growth, Staff Engineer,
 image:
   path: /assets/img/systems-thinking/featured.jpg
   alt: Saeed Salehi and Tom Lloyd in the MentorCruise video about systems thinking
+  link: https://www.youtube.com/watch?v=GeU54lue8k4
 ---
 
 I recently had the chance to talk about my experience as a software engineer and share some thoughts on the industry.

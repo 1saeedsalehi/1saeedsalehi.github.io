@@ -176,7 +176,7 @@
         <!-- add class to existing <a> tag -->
         {% assign _size = _img_content | size | minus: 1 %}
         {% capture _class %}
-          class="img-link{% unless _lqip %} shimmer{% endunless %}"
+          class="img-link{{ _wrapper_class }}"
         {% endcapture %}
         {% assign _img_content = _img_content | slice: 0, _size | append: _class | append: '>' %}
 
